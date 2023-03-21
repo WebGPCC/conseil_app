@@ -11,13 +11,15 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
   return (
     <div className=''>
         <div className='flex justify-between items-center py-5 px-10'>
-            <Image 
-                src={logo}
-                alt ='Logo de la pharmacie'
-            />
+            <a href="./">
+                <Image 
+                    src={logo}
+                    alt ='Logo de la pharmacie'
+                />
+            </a>
             <div>
-                <FontAwesomeIcon icon={faCircleArrowLeft} className={'text-4xl text-green-600'} />
-                <FontAwesomeIcon icon={faHouse} className='text-4xl ml-10 color text-green-600'/>
+                <FontAwesomeIcon icon={faCircleArrowLeft} className='cursor-pointer text-4xl text-green-600'/>
+                <a href="./"><FontAwesomeIcon icon={faHouse} className='text-4xl ml-10 color text-green-600 '/></a>
             </div>
         </div>
 

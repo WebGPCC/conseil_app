@@ -11,17 +11,17 @@ const SearchBar = () => {
                   id="searchbar"
                   name="searchbar"
                   placeholder='Ruhme, Mot de gorges, Mal de tête, etc.'
-                  className=' bg-gray-200 w-[95%] h-16 rounded-l-2xl pl-6'
+                  className=' flex flex-grow bg-gray-200 h-16 rounded-l-2xl pl-6'
               />
-              <div className=' bg-gray-200 w-[5%] h-16 rounded-r-2xl flex justify-center items-center '>
-                  <FontAwesomeIcon icon={faMagnifyingGlass} className=' hidden sm:block m-5 text-xl text-green-600' />
+              <div className=' bg-gray-200 h-16 rounded-r-2xl flex flex-end items-center '>
+                  <FontAwesomeIcon icon={faMagnifyingGlass} className='m-5 text-xl text-green-600' />
               </div>
           </div>
       </div>
-      <div className='flex justify-center font-bold'>
-        <span className='p-5'>Beauté</span>
+      <div className='flex justify-center'>
+        <span className='cursor-pointer p-5'>Beauté</span>
         <span className='p-5'>|</span>
-        <span className='p-5 text-green-600'>Santé</span>
+        <span className='cursor-pointer p-5 text-green-600 font-bold'>Santé</span>
       </div>
     </div>
   )

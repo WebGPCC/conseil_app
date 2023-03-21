@@ -9,6 +9,7 @@ const Categorie = () => {
             src={cat_taux}
             alt='Maux de gorge'
         />
+        <h2 className='flex justify-center pt-2 font-bold'>Maux de gorge</h2>
     </a>
   )
 }
