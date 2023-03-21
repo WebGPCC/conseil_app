@@ -4,7 +4,7 @@ import cat_taux from '../public/cat_taux.png'
 
 const Categorie = () => {
   return (
-    <a href='#'>
+    <a href='./categories/Maux_de_gorge'>
         <Image
             src={cat_taux}
             alt='Maux de gorge'
