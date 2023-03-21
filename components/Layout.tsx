@@ -16,7 +16,7 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
                 alt ='Logo de la pharmacie'
             />
             <div>
-                <FontAwesomeIcon icon={faCircleArrowLeft} className='text-4xl text-green-600' />
+                <FontAwesomeIcon icon={faCircleArrowLeft} className={'text-4xl text-green-600'} />
                 <FontAwesomeIcon icon={faHouse} className='text-4xl ml-10 color text-green-600'/>
             </div>
         </div>

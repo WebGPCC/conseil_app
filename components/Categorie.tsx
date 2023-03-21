@@ -1,0 +1,16 @@
+import Image from 'next/image'
+import React from 'react'
+import cat_taux from '../public/cat_taux.png'
+
+const Categorie = () => {
+  return (
+    <a href='#'>
+        <Image
+            src={cat_taux}
+            alt='Maux de gorge'
+        />
+    </a>
+  )
+}
+
+export default Categorie
