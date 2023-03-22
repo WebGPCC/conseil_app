@@ -1,9 +1,9 @@
 import { useRouter } from "next/router"
 
-function Categorie(){
+const Categorie = () =>{
     const router = useRouter();
-    const {categoriesId} = router.query;
-    return <h1>Categorie {categoriesId} ! </h1>
+    const {categorieId} = router.query;
+    return <h1>Categorie {categorieId} ! </h1>
 }
 
 export default Categorie
