@@ -18,7 +18,7 @@ const Navbar = () => {
          <Head>
             <title>Application de conseil</title>
         </Head>
-        <div className='flex justify-between items-center py-5 px-10'>
+        <div className='flex justify-between items-center py-4 px-5 sm:py-5 sm:px-10 '>
             <Link href="/">
                 <Image 
                     src={logo}
