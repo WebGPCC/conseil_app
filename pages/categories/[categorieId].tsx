@@ -33,7 +33,7 @@ const Categorie = () =>{
                         <Dropdown/> 
                     </div>
 
-                    <div className="flex flex-wrap gap-10 justify-between">
+                    <div className="flex flex-wrap gap-10 justify-between sm:justify-around">
                         <ProductCard/>
                         <ProductCard/>
                         <ProductCard/>

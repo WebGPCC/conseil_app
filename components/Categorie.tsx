@@ -8,7 +8,7 @@ const Categorie = () => {
     <Link href='./categories/Maux de gorge'>
         <Image
             src={cat_taux}
-            alt='Maux de gorge'
+            alt='Image Maux de gorge'
         />
         <h2 className='flex justify-center pt-2 font-bold'>Maux de gorge</h2>
     </Link>
