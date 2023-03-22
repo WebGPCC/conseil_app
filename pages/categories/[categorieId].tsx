@@ -29,7 +29,10 @@ const Categorie = () =>{
                 <section>
                     <h2 className=" flex flex-wrap font-bold text-2xl pt-10 pb-5 sm:pb-10 md:text-4xl lg:text-5xl " >Voici les produits qu’on vous&nbsp;<span className="text-green-600">conseils</span></h2>
                     
-                    <div className="pb-10">
+                    <span>Trier par </span>
+                    <div className="flex flex-wrap items-center gap-2 pb-10 w-full">
+                        <Dropdown/> 
+                        <Dropdown/> 
                         <Dropdown/> 
                     </div>
 
