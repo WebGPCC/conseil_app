@@ -18,8 +18,6 @@ const Categorie = () =>{
                 <h1 className="text-white text-5xl absolute">{categorieId}</h1>
             </div>
 
-   
-
             <div className="px-8 md:px-8">
                 <section>
                     <h2 className=" flex flex-wrap font-bold text-3xl pt-10 pb-5 sm:pb-10 md:text-4xl lg:text-5xl  " >Prenez vos&nbsp;<span className="text-green-600">précautions</span></h2>
@@ -29,11 +27,13 @@ const Categorie = () =>{
                 <section>
                     <h2 className=" flex flex-wrap font-bold text-2xl pt-10 pb-5 sm:pb-10 md:text-4xl lg:text-5xl " >Voici les produits qu’on vous&nbsp;<span className="text-green-600">conseils</span></h2>
                     
-                    <span>Trier par </span>
-                    <div className="flex flex-wrap items-center gap-2 pb-10 w-full">
-                        <Dropdown/> 
-                        <Dropdown/> 
-                        <Dropdown/> 
+                    <div className="flex items-center gap-2 mb-10">
+                        <span>Trier par </span>
+                        <div className="flex flex-wrap items-center gap-2 ">
+                            <Dropdown/> 
+                            <Dropdown/> 
+                            <Dropdown/> 
+                        </div>
                     </div>
 
                     <div className="flex flex-wrap gap-10 justify-between sm:justify-around">

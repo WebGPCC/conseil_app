@@ -19,7 +19,10 @@ const ProductCard = () => {
             <div className="p-5">
                 <h3 className="mb-2 text-xl font-bold tracking-tight">Noteworthy technology acquisitions 2021</h3>
                 <p className="mb-3 font-normal">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
-                <Link href="#" className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                <Link 
+                className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                href="../produit/test"
+                >
                     En savoir plus
                     <FontAwesomeIcon className='mx-2' icon={faArrowRight}/>
                 </Link>

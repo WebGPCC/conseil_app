@@ -5,7 +5,7 @@ import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons'
 const Dropdown = () => {
     return (
        <>
-            <div className="dropdown inline-block relative w-full">
+            <div className="dropdown inline-block relative">
                 <button className="bg-green-600 text-white font-semibold p-4  rounded-full inline-flex items-center">
                     <span className="mr-20">Contenance</span>
                     <FontAwesomeIcon icon={faChevronDown}/>
