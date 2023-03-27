@@ -12,16 +12,17 @@ const Produit = () => {
     const {produitId} = router.query;
   return (
     <div className="flex flex-col sm:flex-row">
-        <aside className="sm:w-1/2 w-full ">
+        <aside className="relative sm:w-1/2 w-full ">
+          <span className="font-bold text-gray-400 text-xl absolute bottom-0 right-0 ">Ref : 700000 </span>
           <Image 
-            className="w-full object-contain"
+            className="sticky top-0 w-full object-contain"
             src={image_test}
             alt="image_product"
           />
         </aside>
         <main className=" w-full px-5 sm:w-1/2">
           <h2 className="text-xl">Marque</h2>
-          <h1 className="text-4xl">
+          <h1 className="font-bold text-4xl">
               {produitId}
           </h1>
 
