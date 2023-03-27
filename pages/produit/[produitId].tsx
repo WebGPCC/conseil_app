@@ -13,12 +13,12 @@ const Produit = () => {
   return (
     <div className="flex flex-col sm:flex-row">
         <aside className="relative sm:w-1/2 w-full ">
-          <span className="font-bold text-gray-400 text-xl absolute bottom-0 right-0 ">Ref : 700000 </span>
+          <span className="font-bold text-gray-400 text-xl absolute bottom-2 right-2 ">Ref : 11000022 </span>
           <Image 
-            className="sticky top-0 w-full object-contain"
+            className="sticky top-0 w-full object-fill"
             src={image_test}
             alt="image_product"
-          />
+          />  
         </aside>
         <main className=" w-full px-5 sm:w-1/2">
           <h2 className="text-xl">Marque</h2>
@@ -37,7 +37,7 @@ const Produit = () => {
               <div className="py-5 ">
                 <details className="group">
                   <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
-                    <span><FontAwesomeIcon className="mr-2" icon={faLeaf}/>Description</span>
+                    <span className="text-lg"><FontAwesomeIcon className="mr-2" icon={faLeaf}/>Description</span>
                       <span className="transition group-open:rotate-180">
                       <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
                       </svg>  
@@ -52,7 +52,7 @@ const Produit = () => {
               <div className="py-5">
                 <details className="group">
                   <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
-                  <span><FontAwesomeIcon className="mr-2" icon={faLeaf}/>Propriétés et bienfaits</span>
+                  <span className="text-lg"><FontAwesomeIcon className="mr-2" icon={faLeaf}/>Propriétés et bienfaits</span>
                   <span className="transition group-open:rotate-180">
                     <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
                     </svg>
@@ -68,7 +68,7 @@ const Produit = () => {
               <div className="py-5">
                 <details className="group">
                   <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
-                    <span><FontAwesomeIcon className="mr-2" icon={faLeaf}/>Conseils d’utilisation</span>
+                    <span className="text-lg"><FontAwesomeIcon className="mr-2" icon={faLeaf}/>Conseils d’utilisation</span>
                     <span className="transition group-open:rotate-180">
                       <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
                       </svg>
@@ -85,7 +85,7 @@ const Produit = () => {
               <div className="py-5">
                 <details className="group">
                 <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
-                <span><FontAwesomeIcon className="mr-2" icon={faLeaf}/>Composition</span>
+                <span className="text-lg"><FontAwesomeIcon className="mr-2" icon={faLeaf}/>Composition</span>
                 <span className="transition group-open:rotate-180">
                       <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
                 </svg>
