@@ -27,12 +27,12 @@ const Categorie = () =>{
                 <section>
                     <h2 className=" flex flex-wrap font-bold text-2xl pt-10 pb-5 sm:pb-10 md:text-4xl lg:text-5xl " >Voici les produits qu’on vous&nbsp;<span className="text-green-600">conseils</span></h2>
                     
-                    <div className="flex items-center gap-2 mb-10">
-                        <span>Trier par </span>
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-10">
+                        <span className="">Trier par </span>
                         <div className="flex flex-wrap items-center gap-2 ">
-                            <Dropdown/> 
-                            <Dropdown/> 
-                            <Dropdown/> 
+                            <Dropdown type={"Contenance"} color={"green"} color_hover={"green"}/> 
+                            <Dropdown type={"Voix"} color={"pink"} color_hover={"pink"}/>
+                            <Dropdown type={"Allergène"} color={"gray"} color_hover={"gray"}/>
                         </div>
                     </div>
 

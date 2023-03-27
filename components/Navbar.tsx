@@ -26,10 +26,9 @@ const Navbar = () => {
                 />
             </Link>
             <div className='flex items-center'>
-                <FontAwesomeIcon icon={faCircleArrowLeft} 
-                    className='cursor-pointer text-4xl text-green-600' 
-                    onClick={rollbackHystory}
-                />
+                <button  onClick={rollbackHystory}>
+                    <FontAwesomeIcon icon={faCircleArrowLeft} className='cursor-pointer text-4xl text-green-600'/>
+                </button>
                 <Link href="/"><FontAwesomeIcon icon={faHouse} className='text-4xl ml-6 color text-green-600 '/></Link>
             </div>
         </div>
