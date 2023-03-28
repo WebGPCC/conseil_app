@@ -30,9 +30,9 @@ const Categorie = () =>{
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-10">
                         <span className="">Trier par </span>
                         <div className="flex flex-wrap items-center gap-2 ">
-                            <Dropdown type={"Contenance"} color={"green"} color_hover={"green"}/> 
-                            <Dropdown type={"Voix"} color={"pink"} color_hover={"pink"}/>
-                            <Dropdown type={"Allergène"} color={"gray"} color_hover={"gray"}/>
+                            <Dropdown type={"Contenance"} color={"bg-green-600"} color_hover={"bg-green-500"}/> 
+                            <Dropdown type={"Voix"} color={"bg-pink-600"} color_hover={"bg-pink-500"}/>
+                            <Dropdown type={"Allergène"} color={"bg-gray-600"} color_hover={"bg-gray-500"}/>
                         </div>
                     </div>
 
