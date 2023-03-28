@@ -4,7 +4,11 @@ import motDeGorge from '@/public/motDeGorge.jpg'
 import ProductCard from "@/components/ProductCard";
 import Dropdown from "@/components/Dropdown";
 
-const Categorie = () =>{
+interface CategorieProps {
+    data: Record<string,any>
+  }
+
+const Categorie: React.FC<CategorieProps> = ({data}) =>{
     const router = useRouter();
     const {categorieId} = router.query;
     return (

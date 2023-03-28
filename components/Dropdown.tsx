@@ -6,7 +6,7 @@ type Props = {
     color: string
     color_hover: string
     type: string
-  }
+}
 
 const Dropdown: React.FC<Props> = ({color,color_hover,type}) => {
 
