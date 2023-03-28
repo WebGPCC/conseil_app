@@ -15,9 +15,8 @@ const rollbackHystory = () => {
 const Navbar = () => {
   return (
     <div>
-         <Head>
-            <link rel="icon" type="image/svg" sizes="32x32" href="/logo.svg"/>
-            <title>Application de conseil</title>
+        <Head>
+            <title>Nos Conseil pour vous</title>
         </Head>
         <div className='flex justify-between items-center py-4 px-5 sm:py-5 sm:px-10 '>
             <Link href="/">
