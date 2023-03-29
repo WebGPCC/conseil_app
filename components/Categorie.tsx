@@ -20,7 +20,7 @@ const Categorie: React.FC<CategorieProps> = ({data}) => {
   )
   
   return (
-    <div onClick={goToSymptome}>
+    <div className='cursor-pointer' onClick={goToSymptome}>
         <Image
             src={cat_taux}
             alt='Image Maux de gorge'

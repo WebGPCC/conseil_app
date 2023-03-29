@@ -10,6 +10,13 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Admin {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  username String? @unique
+  email String? @unique
+  hashedPassword String?
+}
+
 model Symptome {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   name String
