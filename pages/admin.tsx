@@ -1,21 +1,20 @@
+import AccountModal from '@/components/modals/AccountModal'
 import Form from '@/components/Form'
-import LoginModal from '@/components/LoginModal'
 import ProductList from '@/components/ProductList'
 import React, { useState } from 'react'
+import Dashboard from '@/components/modals/Dashboard'
 
 const Admin = () => {
-  const [open, setOpen] = useState(true)
+  const [isLogin, setIsLogin] = useState(false)
+
   return (
     <>
-      { open ? 
-        <div className='flex justify-center items-center h-[70vh]'>
-          <LoginModal/>
-        </div> 
+      { isLogin ? 
+          <Dashboard/>
         :  
-        <div className='flex flex-warp justify-around py-10'>
-          <Form/>
-          <ProductList/>
-        </div>
+        <div className='flex flex-col justify-center items-center h-[70vh]'>
+          <AccountModal/>
+        </div> 
       }
     </>
   )

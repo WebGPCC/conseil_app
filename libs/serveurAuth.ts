@@ -3,6 +3,7 @@ import { getSession } from "next-auth/react";
 
 const serverAuth =async (req: NextApiRequest) => {
     const session = await getSession({req})
+    
     //1:31:55 timestamp
     if(!session?.user?.email){
         throw new Error ('Not signed in')
