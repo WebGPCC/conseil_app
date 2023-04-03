@@ -1,33 +1,55 @@
 import useLoginModal from '@/hooks/useLoginModal'
 import useRegisterModal from '@/hooks/useRegisterModal'
-import { Modak } from 'next/font/google'
+import axios from 'axios'
 import React, { useCallback, useState } from 'react'
 import Input from '../Input'
 import Modal from '../Modal'
+import { toast } from 'react-hot-toast'
+import { signIn } from 'next-auth/react'
 
 const RegisterModal = () => {
     const loginModal = useLoginModal()
     const registerModal = useRegisterModal()
 
-    const [username, setUsername] = useState('')
+    const [username, setUsername] = useState('') 
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
     const [isLoading,setIsLoading] = useState(false)
 
+    const onToggle = useCallback(()=>{
+        if(isLoading){
+            return
+        }
+
+        registerModal.onClose()
+        loginModal.onOpen()
+    },[isLoading, registerModal, loginModal])
 
     const onSubmit = useCallback(async () =>{
         try{
             setIsLoading(true)
 
-            //TO-DO ADD RESGISTER && LOGIN
+            await axios.post('/api/register', {
+                email,
+                username,
+                password
+            })
+
+            toast.success('Compte créé.')
+
+            signIn('credentials',{
+                email,
+                password
+            })
 
             registerModal.onClose()
         }catch(error){
             console.log(error)
+            toast.error("Quelque chose ne s'est pas bien passé...")
         } finally {
             setIsLoading(false)
         }
-    }, [registerModal,setIsLoading]) //<-------- 
+    }, [registerModal,username,email,password]) //<-------- 
     
 
     const bobdyContent = (
@@ -53,11 +75,14 @@ const RegisterModal = () => {
         </div>
     )
 
-    //1:01/29 timestemp
+    //1:01:29 timestemp
     const footerContent = (
         <div className='text-neutral-400 text-center mt-4'>
             <p>Déjà un compte ?&nbsp;
-                <span className='text-white cursor-pointer hover:underline'>Se connecter</span>
+                <span
+                    onClick={onToggle} 
+                    className='text-white cursor-pointer hover:underline'
+                >Se connecter</span>
             </p>
         </div>
     )

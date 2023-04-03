@@ -4,16 +4,20 @@ import { NextApiRequest, NextApiResponse } from "next";
 import prisma from '@/libs/prismadb'
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse){
-    if(req.method != 'POST'){
+    if(req.method !== 'POST'){
         return res.status(405).end()
     }
 
     try{
         const {email, username, password} = req.body
+
+
+        console.log(email, username, password)
+
         const hashedPassword = await bcrypt.hash(password, 12);
 
         const admin = await prisma.admin.create({
-            data:{
+            data: {
                 email,
                 username,
                 hashedPassword

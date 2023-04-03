@@ -12,7 +12,7 @@ datasource db {
 
 model Admin {
   id String @id @default(auto()) @map("_id") @db.ObjectId
-  username String? @unique
+  username String?
   email String? @unique
   hashedPassword String?
 }
