@@ -5,26 +5,22 @@ import Image from 'next/image'
 import logo from '../public/logo.svg'
 import Link from 'next/link'
 import React, { useCallback } from 'react'
-import useLoginModal from '@/hooks/useLoginModal'
-import useRegisterModal from '@/hooks/useRegisterModal'
+import useProductModal from '@/hooks/useProductModal'
 
 const Navbar = () => {
-
     const rollbackHystory = () => {
         window.history.go(-1); 
-        return false;
+        return false
     }
     
-    const loginModal = useLoginModal()
-    const registerModal = useRegisterModal()
-
+    const productModal = useProductModal()
+    
     const onClick = useCallback(
     () => {
-        loginModal.onOpen()
+        productModal.onOpen()
     },
-    [loginModal],
+    [productModal],
     )
-
   return (
     <div>
         <Head>
@@ -38,8 +34,8 @@ const Navbar = () => {
                 />
             </Link>
             <div className='flex items-center'>
-                <button onClick={onClick} className='border border-green-500 py-2 px-5 mx-5 hover:bg-black text-green-500 rounded-3xl'>Admin</button>
-                <button  onClick={rollbackHystory}>
+                    <button onClick={onClick} className='border border-green-500 py-2 px-5 mx-5 hover:bg-black text-green-500 rounded-3xl'>Créer un produit</button> 
+                <button onClick={rollbackHystory}>
                     <FontAwesomeIcon icon={faCircleArrowLeft} className='cursor-pointer text-4xl text-green-600'/>
                 </button>
                 <Link href="/"><FontAwesomeIcon icon={faHouse} className='text-4xl ml-6 color text-green-600 '/></Link>

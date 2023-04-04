@@ -11,8 +11,6 @@ const Categorie: React.FC = () =>{
     const {categorieId} = router.query;
     const { data: fetchSymptome, isLoading } = useSymptome(categorieId as string)
     
-    console.log(fetchSymptome)
-
     if(isLoading || !fetchSymptome){
         return (
             <div className="flex justify-center items-center h-[80vh]">
@@ -20,7 +18,8 @@ const Categorie: React.FC = () =>{
             </div>
         )
     }
-
+    console.log("fetching symtome : ",fetchSymptome)
+    
     return (
         <div className="pb-20">
             <div className="flex justify-center items-center">
@@ -51,8 +50,11 @@ const Categorie: React.FC = () =>{
                     </div>
 
                     <div className="flex flex-wrap gap-10 justify-between sm:justify-around">
-                        {/* Faire des products card */}
-                        <ProductCard />
+                        { fetchSymptome.produits ?  
+                            /* Faire des products card */
+                            <ProductCard />
+                            : "Pas de produits pour le moment"
+                        }
                     </div>
                 </section>
             </div>

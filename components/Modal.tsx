@@ -117,11 +117,10 @@ const Modal: React.FC<ModalProps> = ({
                         </button>
                     </div>
                     {/* Body */}
-                    <div className='relative p-10 flex-auto'>
+                    <div className='relative px-10 flex-auto'>
                         {body}
                     </div>
-                    {/* Footer */}
-                    <div className='flex flex-col gap-2 p-10'>
+                    <div className='flex flex-col gap-2 p-10 bg-black rounded-lg'>
                         <Button 
                             disabled={disabled} 
                             label={actionLabel} 
@@ -132,6 +131,7 @@ const Modal: React.FC<ModalProps> = ({
                         />
                         {footer}
                     </div>
+                    {/* Footer */}
                 </div>
             </div>
         </div>

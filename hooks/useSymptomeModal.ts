@@ -1,15 +1,15 @@
 import {create} from 'zustand'
 
-interface RegisterModalStore{
+interface SymptomeModalStore{
     isOpen: boolean
     onOpen: () => void
     onClose: () => void
 }
 
-const useRegisterModal = create<RegisterModalStore>((set) =>({
+const useSymptomeModal = create<SymptomeModalStore>((set) =>({
     isOpen: false,
     onOpen: () => set({ isOpen:true }),
     onClose:() => set({ isOpen:false }),
 }))
 
-export default useRegisterModal
+export default useSymptomeModal
