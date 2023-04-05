@@ -6,8 +6,10 @@ interface ResgisterProductModalStore {
     onClose: ()=>void
 }
 
-const userRegisterProductModal = create<ResgisterProductModalStore>((set)=>({
+const useRegisterProductModal = create<ResgisterProductModalStore>((set)=>({
     isOpen:false,
-    onOpen: ()=>set({isOpen:true}),
-    onClose: ()=>set({isOpen:false}),
+    onOpen: ()=>set({ isOpen:true }),
+    onClose:()=>set({ isOpen:false }),
 }))
+
+export default useRegisterProductModal

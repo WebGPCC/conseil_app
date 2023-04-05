@@ -4,7 +4,7 @@ import Modal from '../Modal'
 import toast from 'react-hot-toast'
 import axios from 'axios'
 import useProductModal from '@/hooks/useProductModal'
-import useSymptomeModal from '@/hooks/useSymptomeModal'
+import useSymptomeModal from '@/hooks/useRegisterSymptomeModal'
 
 const LoginModal = () => {
     const productModal = useProductModal()

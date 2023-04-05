@@ -5,7 +5,7 @@ import Image from 'next/image'
 import logo from '../public/logo.svg'
 import Link from 'next/link'
 import React, { useCallback } from 'react'
-import useProductModal from '@/hooks/useProductModal'
+import useRegisterProductModal from '@/hooks/useRegisterProductModal'
 
 const Navbar = () => {
     const rollbackHystory = () => {
@@ -13,7 +13,7 @@ const Navbar = () => {
         return false
     }
     
-    const productModal = useProductModal()
+    const productModal = useRegisterProductModal()
     
     const onClick = useCallback(
     () => {

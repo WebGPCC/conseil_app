@@ -18,10 +18,10 @@ model Symptome {
 }
 
 model Produit {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  name String
-  description String
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
   name        String
+  description String
+  brand       String
   property    String
   reference   String
   use         String
