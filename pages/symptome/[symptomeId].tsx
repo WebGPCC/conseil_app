@@ -10,7 +10,7 @@ interface CategorieProps {
 
 const Categorie: React.FC<CategorieProps> = ({data}) =>{
     const router = useRouter();
-    const {symptomeId} = router.query;
+    const {categorieId} = router.query;
     return (
         <div className="pb-20">
             <div className="flex justify-center items-center">
@@ -19,7 +19,7 @@ const Categorie: React.FC<CategorieProps> = ({data}) =>{
                     alt="Image"
                     className="w-full brightness-50"
                 />
-                <h1 className="text-white text-5xl absolute">{symptomeId}</h1>
+                <h1 className="text-white text-5xl absolute">{categorieId}</h1>
             </div>
 
             <div className="px-8 md:px-8">
