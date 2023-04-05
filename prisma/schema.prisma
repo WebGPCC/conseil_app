@@ -23,6 +23,7 @@ model Symptome {
 model Produit {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   name String
+  brand String
   description String
   property String
   use String

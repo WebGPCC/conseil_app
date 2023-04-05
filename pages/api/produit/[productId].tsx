@@ -11,22 +11,17 @@ export default async function handler(
     }
 
     try {
-        const { symptomeId } = req.query
+        const { productId } = req.query
 
-        if(!symptomeId || typeof symptomeId != 'string'){
+        if(!productId || typeof productId != 'string'){
             throw new Error('Invalid ID')
         }
-
-        const actualSymptome = await prisma.symptome.findUnique({
-            where: {
-                id: symptomeId
-            },
-            include:{
-                produits: true
-            }
+        
+        const productUnderSymptome = await prisma.produit.findUnique({
+            where : {id : productId}
         })
 
-        return res.status(200).json(actualSymptome)
+        return res.status(200).json(productUnderSymptome)
     } catch (error){
         console.log(error)
         return res.status(405).end()
