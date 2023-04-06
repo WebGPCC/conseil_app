@@ -21,27 +21,19 @@ export default async function handler(
             symptomeId
         } = req.body
 
-        const symptomeProduct = await prisma.symptome.update({
-            where : {
-                id : symptomeId
-            },
+        const produit = await prisma.produit.create({
             data : {
-                produits : {
-                    create : [
-                        {
-                            name : name,
-                            description : description,
-                            property: property,
-                            use : use,
-                            composition : composition, 
-                            reference : reference
-                        }
-                    ]
-                }
+                name : name,
+                description : description,
+                property: property,
+                use : use,
+                reference : reference,
+                symptomeId :symptomeId,
+                composition : composition, 
             }
         })
 
-        return res.status(200).json(symptomeProduct)
+        return res.status(200).json(produit)
     } catch (error){
         console.log(error)
         return res.status(405).end()

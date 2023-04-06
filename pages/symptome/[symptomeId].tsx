@@ -3,14 +3,18 @@ import Image from "next/image";
 import motDeGorge from '@/public/motDeGorge.jpg'
 import ProductCard from "@/components/ProductCard";
 import Dropdown from "@/components/Dropdown";
+import useSymptome from "@/hooks/useSymptome";
 
-interface CategorieProps {
-    data: Record<string,any>
-  }
+const Symptome = () =>{
+    const router = useRouter(); 
+    const {symptomeId} = router.query;
+    const {data : symptomeFetch, isLoading} = useSymptome(symptomeId as string)
+    console.log("ICI : ",symptomeFetch)
 
-const Categorie: React.FC<CategorieProps> = ({data}) =>{
-    const router = useRouter();
-    const {categorieId} = router.query;
+    if(!symptomeFetch || isLoading){
+        return (<div className="flex justify-center items-center h-[80vh] text-3xl text-bold">Loading..</div>)
+    }
+
     return (
         <div className="pb-20">
             <div className="flex justify-center items-center">
@@ -19,13 +23,27 @@ const Categorie: React.FC<CategorieProps> = ({data}) =>{
                     alt="Image"
                     className="w-full brightness-50"
                 />
-                <h1 className="text-white text-5xl absolute">{categorieId}</h1>
+                <h1 className="text-white text-5xl absolute">{symptomeFetch.name}</h1>
             </div>
 
             <div className="px-8 md:px-8">
                 <section>
-                    <h2 className=" flex flex-wrap font-bold text-3xl pt-10 pb-5 sm:pb-10 md:text-4xl lg:text-5xl  " >Prenez vos&nbsp;<span className="text-green-600">précautions</span></h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam at dictum nulla. Ut eu nibh mauris. Nam eget dolor ut mauris dictum dapibus. In elementum eu urna ac tristique. Pellentesque malesuada nisl est, sit amet tempus nisi tristique quis. Etiam id tortor at nulla egestas ultricies eget vitae enim. In vel vehicula ex, ut vestibulum purus. Mauris dictum nibh et pulvinar sodales.</p>
+                    <h2 
+                        className="
+                            flex 
+                            flex-wrap 
+                            font-bold 
+                            text-3xl 
+                            pt-10 
+                            pb-5 
+                            sm:pb-10 
+                            md:text-4xl 
+                            lg:text-5xl
+                        "
+                    >
+                        Prenez vos&nbsp;<span className="text-green-600">précautions</span>
+                    </h2>
+                    <p>{symptomeFetch.precaution}</p>
                 </section>
 
                 <section>
@@ -41,14 +59,10 @@ const Categorie: React.FC<CategorieProps> = ({data}) =>{
                     </div>
 
                     <div className="flex flex-wrap gap-10 justify-between sm:justify-around">
-                        <ProductCard/>
-                        <ProductCard/>
-                        <ProductCard/>
-                        <ProductCard/>
-                        <ProductCard/>
-                        <ProductCard/>
-                        <ProductCard/>
-                        <ProductCard/>
+                        {
+                            symptomeFetch.produit ? <ProductCard/> : '' 
+                        }
+                        
                     </div>
                 </section>
             </div>
@@ -56,4 +70,4 @@ const Categorie: React.FC<CategorieProps> = ({data}) =>{
     )
 }
 
-export default Categorie
+export default Symptome

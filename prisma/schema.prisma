@@ -20,11 +20,12 @@ model Symptome {
 model Produit {
   id          String @id @default(auto()) @map("_id") @db.ObjectId
   name        String
-  description String
   brand       String
+  description String
   property    String
-  reference   String
   use         String
+  composition String
+  reference   String
   symptomeId  String @db.ObjectId
 
   symptome Symptome @relation(fields: [symptomeId], references: [id], onDelete: Cascade)   
