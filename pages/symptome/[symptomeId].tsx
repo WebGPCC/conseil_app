@@ -9,7 +9,6 @@ const Symptome = () =>{
     const router = useRouter(); 
     const {symptomeId} = router.query;
     const {data : symptomeFetch, isLoading} = useSymptome(symptomeId as string)
-    console.log("ICI : ",symptomeFetch)
 
     if(!symptomeFetch || isLoading){
         return (<div className="flex justify-center items-center h-[80vh] text-3xl text-bold">Loading..</div>)
