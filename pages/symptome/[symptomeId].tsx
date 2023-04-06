@@ -25,25 +25,26 @@ const Symptome = () =>{
                     width='100'
                     height='100'
                 />
-                <h1 className="text-white text-5xl absolute">{symptomeFetch.name}</h1>
+                <h1 className="text-white text-center text-3xl sm:text-5xl absolute">{symptomeFetch.name}</h1>
             </div>
 
             <div className="px-8 md:px-8">
                 <section>
-                    <h2 
-                        className="
-                            flex 
-                            flex-wrap 
-                            font-bold 
-                            text-3xl 
-                            pt-10 
-                            pb-5 
-                            sm:pb-10 
-                            md:text-4xl 
-                            lg:text-5xl
-                        "
-                    >
-                        Prenez vos&nbsp;<span className="text-green-600">précautions</span>
+                    <h2 className="
+                        flex 
+                        flex-wrap 
+                        font-bold 
+                        text-3xl 
+                        pt-10 
+                        pb-5 
+                        sm:pb-10 
+                        md:text-4xl 
+                        lg:text-5xl
+                    ">
+                        Prenez vos&nbsp;
+                        <span className="text-green-600">
+                            précautions
+                        </span>
                     </h2>
                     <p>{symptomeFetch.precaution}</p>
                 </section>
@@ -54,9 +55,21 @@ const Symptome = () =>{
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-10">
                         <span className="">Trier par </span>
                         <div className="flex flex-wrap items-center gap-2 ">
-                            <Dropdown type={"Contenance"} color={"bg-green-600"} color_hover={"bg-green-500"}/> 
-                            <Dropdown type={"Voix"} color={"bg-pink-600"} color_hover={"bg-pink-500"}/>
-                            <Dropdown type={"Allergène"} color={"bg-gray-600"} color_hover={"bg-gray-500"}/>
+                            <Dropdown 
+                                type={"Contenance"} 
+                                color={"bg-green-600"} 
+                                color_hover={"bg-green-500"}
+                            /> 
+                            <Dropdown 
+                                type={"Voix"} 
+                                color={"bg-pink-600"} 
+                                color_hover={"bg-pink-500"}
+                            />
+                            <Dropdown 
+                                type={"Allergène"} 
+                                color={"bg-gray-600"} 
+                                color_hover={"bg-gray-500"}
+                            />
                         </div>
                     </div>
 
