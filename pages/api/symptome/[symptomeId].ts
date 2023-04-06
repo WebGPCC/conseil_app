@@ -16,7 +16,7 @@ export default async function handler(
         if(!symptomeId || typeof symptomeId != 'string'){
             throw new Error('Invalid ID')
         }
-
+        
         const actualSymptome = await prisma.symptome.findUnique({
             where: {
                 id: symptomeId
