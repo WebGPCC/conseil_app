@@ -3,6 +3,8 @@ import Image from "next/image";
 import ProductCard from "@/components/ProductCard";
 import Dropdown from "@/components/Dropdown";
 import useSymptome from "@/hooks/useSymptome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const Symptome = () =>{
     const router = useRouter(); 
@@ -60,13 +62,29 @@ const Symptome = () =>{
 
                     <div className="flex flex-wrap gap-10 justify-between sm:justify-around">
                         {
-                            symptomeFetch.produits.length === 0 ? 
+                            symptomeFetch.produits.length != 0 ? 
                                 symptomeFetch.produits.map((produit:Record<string,any>)=>(
                                     <ProductCard key={produit.id} data={produit}/>
                                 ))
                             : (
-                                <span className=" text-bold text-xl py-8">
-                                    Nous n&apos;avons pas de produit pour ce symptome pour le moment
+                                <span className=" 
+                                    flex 
+                                    justify-center 
+                                    items-center 
+                                    text-bold 
+                                    text-xl 
+                                    text-gray-700 
+                                    py-8 
+                                    px-4 
+                                    border 
+                                    border-2 
+                                    border-dotted
+                                    rounded-xl
+                                ">
+                                    <span className="text-4 xl mr-5">
+                                        <FontAwesomeIcon icon={faMagnifyingGlass}/>
+                                    </span>
+                                    Nous n&apos;avons pas de produits pour le {symptomeFetch.name} pour le moment
                                 </span>
                             )
                         }
