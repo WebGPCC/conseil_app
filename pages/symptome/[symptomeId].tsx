@@ -60,13 +60,13 @@ const Symptome = () =>{
 
                     <div className="flex flex-wrap gap-10 justify-between sm:justify-around">
                         {
-                            symptomeFetch.produits ? 
+                            symptomeFetch.produits.length === 0 ? 
                                 symptomeFetch.produits.map((produit:Record<string,any>)=>(
                                     <ProductCard key={produit.id} data={produit}/>
                                 ))
                             : (
-                                <span className=" text-bold text-3xl">
-                                    Nous n&apos;avons de produit pour ce symptome pour le moment
+                                <span className=" text-bold text-xl py-8">
+                                    Nous n&apos;avons pas de produit pour ce symptome pour le moment
                                 </span>
                             )
                         }

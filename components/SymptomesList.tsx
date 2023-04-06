@@ -1,9 +1,13 @@
-import useSymptomes from '@/hooks/useSymptomes'
 import React from 'react'
 import SymptomeCard from './SymptomeCard'
 
-const SymptomesList = () => {
-  const {data: symptomes = [], isLoading} = useSymptomes()
+interface SymptomeListProps{
+  data:Record<string,any>
+  isLoading : boolean
+  filterby : string
+}
+
+const SymptomesList:React.FC<SymptomeListProps> = ({data, isLoading, filterby}) => {
 
   if(isLoading){
     return (
@@ -13,7 +17,8 @@ const SymptomesList = () => {
 
   return (
       <div className='flex justify-around  items-center flex-wrap gap-10 m:gap-24 m:px-36 pb-16 px-10'>
-        {symptomes.map((symptome: Record<string,any>) => (
+        {data.filter((element:Record<string,any>)=>element.name.includes(filterby))
+        .map((symptome: Record<string,any>) => (
           <SymptomeCard key={symptome.id} data={symptome}/>
         ))}
       </div>
