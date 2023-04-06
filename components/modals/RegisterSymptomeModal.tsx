@@ -5,6 +5,7 @@ import useRegisterSymptomeModal from '@/hooks/useRegisterSymptomeModal'
 import Input from '../global/Input'
 import Modal from './Modal'
 import { toast } from 'react-hot-toast'
+import ImageUpload from '../ImageUpload'
 
 const RegisterSymptomeModal = () => {
     const productModal = useRegisterProductModal()
@@ -55,22 +56,35 @@ const RegisterSymptomeModal = () => {
 
     const bobdyContent = (
         <div className='flex flex-col gap-4'>
-            <Input
-                placeholder='Nom du Symptome'
-                onChange={(e)=>setName(e.target.value)}
-                value={name}
+            <ImageUpload
+                value={logo}
                 disabled={isLoading}
+                onChange={(image)=>setLogo(image)}
+                label='Upload une logo'
+            />            
+            <ImageUpload
+                value={banner}
+                disabled={isLoading}
+                onChange={(image)=>setBanner(image)}
+                label='Upload un Bannière'
             />
-            <Input
+            {/* <Input
                 placeholder='Logo'
                 onChange={(e)=>setLogo(e.target.value)}
                 value={logo}
                 disabled={isLoading}
-            />
-            <Input
+            /> */}
+            {/* <Input
                 placeholder='Bannière'
                 onChange={(e)=>setBanner(e.target.value)}
                 value={banner}
+                disabled={isLoading}
+            /> */}
+
+            <Input
+                placeholder='Nom du Symptome'
+                onChange={(e)=>setName(e.target.value)}
+                value={name}
                 disabled={isLoading}
             />
             <Input

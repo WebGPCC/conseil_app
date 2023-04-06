@@ -20,9 +20,9 @@ export default async function handler(
 
         const symptomeProduct = await prisma.symptome.create({
             data : {
-                coverImage : banner,
-                logoImage : logo,
                 name : name, 
+                logoImage : logo,
+                coverImage : banner,
                 precaution : precaution,
                 produits : {
                     create  : []

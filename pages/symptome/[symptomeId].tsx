@@ -1,6 +1,5 @@
 import { useRouter } from "next/router"
 import Image from "next/image";
-import motDeGorge from '@/public/motDeGorge.jpg'
 import ProductCard from "@/components/ProductCard";
 import Dropdown from "@/components/Dropdown";
 import useSymptome from "@/hooks/useSymptome";
@@ -18,9 +17,11 @@ const Symptome = () =>{
         <div className="pb-20">
             <div className="flex justify-center items-center">
                 <Image 
-                    src={motDeGorge} 
+                    src={symptomeFetch.coverImage} 
                     alt="Image"
                     className="w-full brightness-50"
+                    width='100'
+                    height='100'
                 />
                 <h1 className="text-white text-5xl absolute">{symptomeFetch.name}</h1>
             </div>
