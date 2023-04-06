@@ -20,6 +20,11 @@ const RegisterProductModal = () => {
     const [symptomeId,setSymptomeId] = useState('')
     const [isLoading,setIsLoading] = useState(false)
 
+    const onToggle = useCallback(async ()=> {
+        productModal.onClose()
+        symptomeModal.onOpen()
+    },[productModal,symptomeModal])
+
     const onSubmit = useCallback(async () =>{
         try{
             setIsLoading(true)
@@ -114,8 +119,14 @@ const RegisterProductModal = () => {
         </div>
     )
     const footerContent = (
-        <div className='text-white'>
-            azea
+        <div className='flex justify-center text-gray-300'>
+            Voulez-vous créer un symptome ? &nbsp; 
+            <span
+                onClick={onToggle} 
+                className='
+                    cursor-pointer hover:underline text-white
+                '
+            >Oui !</span>
         </div>
     )
     return (
