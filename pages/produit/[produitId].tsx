@@ -22,7 +22,7 @@ const Produit = () => {
   return (
     <div className="flex flex-col sm:flex-row">
         <aside className="relative sm:w-1/2 w-full ">
-          <span className="font-bold text-gray-400 text-xl absolute bottom-2 right-2 ">{produitFetch.reference}</span>
+          <span className="text-gray-400 text-lg absolute bottom-2 right-2 ">ref: {produitFetch.reference}</span>
           <Image 
             className="sticky top-0 w-full object-fill"
             src={image_test}

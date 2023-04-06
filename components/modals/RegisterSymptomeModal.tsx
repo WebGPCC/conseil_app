@@ -60,27 +60,14 @@ const RegisterSymptomeModal = () => {
                 value={logo}
                 disabled={isLoading}
                 onChange={(image)=>setLogo(image)}
-                label='Upload une logo'
+                label='Upload un logo'
             />            
             <ImageUpload
                 value={banner}
                 disabled={isLoading}
                 onChange={(image)=>setBanner(image)}
-                label='Upload un Bannière'
+                label='Upload une bannière'
             />
-            {/* <Input
-                placeholder='Logo'
-                onChange={(e)=>setLogo(e.target.value)}
-                value={logo}
-                disabled={isLoading}
-            /> */}
-            {/* <Input
-                placeholder='Bannière'
-                onChange={(e)=>setBanner(e.target.value)}
-                value={banner}
-                disabled={isLoading}
-            /> */}
-
             <Input
                 placeholder='Nom du Symptome'
                 onChange={(e)=>setName(e.target.value)}

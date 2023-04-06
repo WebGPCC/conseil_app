@@ -27,7 +27,7 @@ const SymptomeCard: React.FC<SymptomeCardProps> = ({data}) => {
           items-center
           justify-center
           cursor-pointer
-          hover:text-green-500
+          hover:text-green-500 
         '
     >
       <Image
