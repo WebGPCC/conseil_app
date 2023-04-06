@@ -1,16 +1,17 @@
 import React, { useCallback, useState } from 'react'
-import Input from '../Input'
-import Modal from '../Modal'
 import toast from 'react-hot-toast'
 import axios from 'axios'
 import useRegisterProductModal from '@/hooks/useRegisterProductModal'
 import useRegisterSymptomeModal from '@/hooks/useRegisterSymptomeModal'
+import Input from '../global/Input'
+import Modal from './Modal'
 
-const ProductModal = () => {
+const RegisterProductModal = () => {
     const productModal = useRegisterProductModal()
     const symptomeModal = useRegisterSymptomeModal()
 
     const [name,setName] = useState('')
+    const [brand,setBrand] = useState('')
     const [description,setDescription] = useState('')
     const [property,setProperty] = useState('')
     const [use,setUse] = useState('')
@@ -26,6 +27,7 @@ const ProductModal = () => {
             //ADD
             await axios.post('/api/addProduct',{
                 name,
+                brand,
                 description,
                 property,
                 use,
@@ -47,6 +49,7 @@ const ProductModal = () => {
         productModal,
         setIsLoading,
         name,
+        brand,
         description,
         property,
         use,
@@ -58,24 +61,38 @@ const ProductModal = () => {
 
     const bobdyContent = (
         <div className='flex flex-col gap-4'>
+            <div className='flex flex-wrap gap-4'>
+                <Input
+                    placeholder='Nom'
+                    onChange={(e)=>setName(e.target.value)}
+                    value={name}
+                    disabled={isLoading}
+                />
+                <Input
+                    placeholder='Marque'
+                    onChange={(e)=>setBrand(e.target.value)}
+                    value={brand}
+                    disabled={isLoading}
+                />
+                <Input
+                    placeholder='Référence'
+                    onChange={(e)=>setReference(e.target.value)}
+                    value={reference}
+                    disabled={isLoading}
+                />                
+                <Input
+                    placeholder='Id Symptome'
+                    onChange={(e)=>setSymptomeId(e.target.value)}
+                    value={symptomeId}
+                    disabled={isLoading}
+                />
+            </div>
             <Input
-                placeholder='Nom du produit'
-                onChange={(e)=>setName(e.target.value)}
-                value={name}
-                disabled={isLoading}
-            />
-            <Input
-                placeholder='Description'
-                onChange={(e)=>setDescription(e.target.value)}
-                value={description}
-                disabled={isLoading}
-            />
-            <Input
-                placeholder='Propriété'
-                onChange={(e)=>setProperty(e.target.value)}
-                value={property}
-                disabled={isLoading}
-            />
+                    placeholder='Description'
+                    onChange={(e)=>setDescription(e.target.value)}
+                    value={description}
+                    disabled={isLoading}
+                />
             <Input
                 placeholder='Utilisation'
                 onChange={(e)=>setUse(e.target.value)}
@@ -89,15 +106,9 @@ const ProductModal = () => {
                 disabled={isLoading}
             />
             <Input
-                placeholder='Référence'
-                onChange={(e)=>setReference(e.target.value)}
-                value={reference}
-                disabled={isLoading}
-            />
-            <Input
-                placeholder='Id de la catégorie'
-                onChange={(e)=>setSymptomeId(e.target.value)}
-                value={symptomeId}
+                placeholder='Propriété'
+                onChange={(e)=>setProperty(e.target.value)}
+                value={property}
                 disabled={isLoading}
             />
         </div>
@@ -121,4 +132,4 @@ const ProductModal = () => {
     )
 }
 
-export default ProductModal
+export default RegisterProductModal

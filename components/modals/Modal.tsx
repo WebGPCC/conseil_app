@@ -1,17 +1,17 @@
-import React, { useCallback } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
-import Button from './Button'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React, { useCallback } from 'react'
+import Button from '../global/Button'
 
 interface ModalProps{
-    isOpen? : boolean
+    isOpen?: boolean
     onClose: () => void
     onSubmit: () => void
     title?: string
     body?: React.ReactElement
     footer?: React.ReactElement
-    actionLabel: string
-    disabled?: boolean
+    actionLabel: string 
+    disabled? :boolean
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -22,19 +22,19 @@ const Modal: React.FC<ModalProps> = ({
     body,
     footer,
     actionLabel,
-    disabled
+    disabled,
 }) => {
-    const handleClose = useCallback(()=>{
-        if (disabled){
-            return;
+    const handlerClose = useCallback(()=>{
+        if(disabled){
+            return
         }
 
         onClose()
-    },[disabled, onClose])
+    },[disabled,onClose])
 
-    const handleSubmit = useCallback(()=>{
-        if (disabled){
-            return;
+    const handlerSubmit = useCallback(()=>{
+        if(disabled){
+            return
         }
 
         onSubmit()
@@ -43,11 +43,10 @@ const Modal: React.FC<ModalProps> = ({
     if(!isOpen){
         return null
     }
-    
-  return (
-    <>
-        <div 
-            className="
+
+    return (
+        <div
+            className='
                 justify-center
                 items-center
                 flex
@@ -57,12 +56,12 @@ const Modal: React.FC<ModalProps> = ({
                 inset-0
                 z-50
                 outline-none
-                focus:outline-none
+                focus:outline-800
                 bg-neutral-800
                 bg-opacity-70
-            "
+            '
         >
-            <div 
+            <div
                 className='
                     relative
                     w-full
@@ -75,8 +74,8 @@ const Modal: React.FC<ModalProps> = ({
                 '
             >
                 {/* Content */}
-                <div 
-                    className="
+                <div
+                    className='
                         h-full
                         lg:h-auto
                         border-0
@@ -89,53 +88,67 @@ const Modal: React.FC<ModalProps> = ({
                         bg-black
                         outline-none
                         focus:outline-none
-                    "
+                    '
                 >
-                    {/* header */}
+                    {/* Header */}
                     <div
                         className='
                             flex
                             items-center
                             justify-between
                             p-10
-                            rounded-t
+                            rounded-t           
                         '
                     >
-                        <h3 className='text-3xl font-semibold text-white'>{title}</h3>
-                        <button 
-                            onClick={handleClose}
+                       <h3 className='
+                            text-3xl 
+                            font-semibold
+                            text-white
+                       '>
+                        {title}
+                       </h3>
+
+                       <button
+                            onClick={handlerClose}
                             className='
                                 p-1
                                 ml-auto
                                 border-0
                                 text-white
-                                hover:opacity-20
+                                hover:opacity-70
                                 transition
                             '
-                        >
-                            <FontAwesomeIcon icon={faXmark} className='h-6 w-6'/>
-                        </button>
+                       >
+                            <FontAwesomeIcon icon={faXmark}/>
+                       </button>
                     </div>
+                    
                     {/* Body */}
-                    <div className='relative px-10 flex-auto'>
+                    <div
+                        className='
+                            relative
+                            p-10
+                            flex-auto
+                            bg-black
+                        '
+                    >
                         {body}
                     </div>
-                    <div className='flex flex-col gap-2 p-10 bg-black rounded-lg'>
+                    {/* footer */}
+                    <div className='flex flex-col gap-2 p-10 bg-black'>
                         <Button 
-                            disabled={disabled} 
-                            label={actionLabel} 
-                            secondary 
-                            fullWidth 
-                            large 
-                            onClick={handleSubmit}
+                            disabled={disabled}  
+                            label={actionLabel}
+                            secondairy
+                            fullWidth
+                            large
+                            onClick={handlerSubmit}
                         />
                         {footer}
                     </div>
-                    {/* Footer */}
                 </div>
             </div>
         </div>
-    </>
     )
 }
 

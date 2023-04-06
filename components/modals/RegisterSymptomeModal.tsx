@@ -1,14 +1,14 @@
 import React, { useCallback, useState } from 'react'
-import Input from '../Input'
-import Modal from '../Modal'
-import toast from 'react-hot-toast'
 import axios from 'axios'
-import useProductModal from '@/hooks/useProductModal'
-import useSymptomeModal from '@/hooks/useRegisterSymptomeModal'
+import useRegisterProductModal from '@/hooks/useRegisterProductModal'
+import useRegisterSymptomeModal from '@/hooks/useRegisterSymptomeModal'
+import Input from '../global/Input'
+import Modal from './Modal'
+import { toast } from 'react-hot-toast'
 
-const LoginModal = () => {
-    const productModal = useProductModal()
-    const symptomeModal = useSymptomeModal()
+const RegisterSymptomeModal = () => {
+    const productModal = useRegisterProductModal()
+    const symptomeModal = useRegisterSymptomeModal()
 
     const [name,setName] = useState('')
     const [logo,setLogo] = useState('')
@@ -96,4 +96,4 @@ const LoginModal = () => {
     )
 }
 
-export default LoginModal
+export default RegisterSymptomeModal
