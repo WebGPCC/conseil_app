@@ -88,10 +88,10 @@ const RegisterProductModal = () => {
                 />
             </div>
             <Input
-                    placeholder='Description'
-                    onChange={(e)=>setDescription(e.target.value)}
-                    value={description}
-                    disabled={isLoading}
+                placeholder='Description'
+                onChange={(e)=>setDescription(e.target.value)}
+                value={description}
+                disabled={isLoading}
                 />
             <Input
                 placeholder='Utilisation'
@@ -114,7 +114,7 @@ const RegisterProductModal = () => {
         </div>
     )
     const footerContent = (
-        <div className=''>
+        <div className='text-white'>
             azea
         </div>
     )

@@ -13,6 +13,7 @@ export default async function handler(
     try {
         const {
             name,
+            brand,
             description,
             property,
             use,
@@ -24,12 +25,13 @@ export default async function handler(
         const produit = await prisma.produit.create({
             data : {
                 name : name,
+                brand : brand,
                 description : description,
                 property: property,
                 use : use,
+                composition : composition, 
                 reference : reference,
                 symptomeId :symptomeId,
-                composition : composition, 
             }
         })
 
