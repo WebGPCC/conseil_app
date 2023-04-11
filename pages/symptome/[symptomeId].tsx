@@ -47,11 +47,11 @@ const Symptome = () =>{
 
     return (
         <div className="pb-20">
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center ">
                 <Image 
                     src={symptomeFetch.coverImage} 
                     alt="Image"
-                    className="w-full brightness-50"
+                    className="w-full brightness-50 object-cover h-[130px]"
                     width='100'
                     height='100'
                 />
