@@ -1,6 +1,10 @@
 import React from 'react'
 
-const Tag = () => {
+interface TagProps{
+  value : string
+}
+
+const Tag:React.FC<TagProps> = ({value}) => {
   return (
     <span 
       className='
@@ -12,7 +16,7 @@ const Tag = () => {
         rounded-xl 
         text-green-600
       '
-    > Tag </span>
+    > {value} </span>
   )
 }
 

@@ -36,9 +36,9 @@ const Produit = () => {
           </h1>
 
           <div className="flex flex-warp gap-2 mt-5">
-            <Tag/>
-            <Tag/>
-            <Tag/>
+            <Tag value="Tag"/>
+            <Tag value="Tag"/>
+            <Tag value="Tag"/>
           </div>
 
           <div className="bg-white min-h-sceen">

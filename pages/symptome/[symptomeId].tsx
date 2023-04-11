@@ -6,6 +6,7 @@ import useSymptome from "@/hooks/useSymptome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useCallback, useState } from "react";
+import Tag from "@/components/Tag";
 
 const Symptome = () =>{
     const router = useRouter(); 
@@ -81,8 +82,20 @@ const Symptome = () =>{
                 <section>
                     <h2 className=" flex flex-wrap font-bold text-2xl pt-10 pb-5 sm:pb-10 md:text-4xl lg:text-5xl " >Voici les produits qu’on vous&nbsp;<span className="text-green-600">conseils</span></h2>
                     
+                    <div className="flex flex-wrap items-center mb-6">
+                        <span className="font-bold">Tag selectionné:&nbsp;</span>
+                        <div className="flex flex-wrap  gap-2">
+                            <Tag value='test'/>
+                            <Tag value='test'/>
+                            <Tag value='test'/>
+                            <Tag value='test'/>
+                            <Tag value='test'/>
+                            <Tag value='test'/>
+                        </div>
+                    </div>
+
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-10">
-                        <span className="">Trier par </span>
+                        <span className="font-bold">Trier par:</span>
                         <div className="flex flex-wrap items-center gap-2 ">
                             <Dropdown 
                                 type={"Contenance"} 
