@@ -81,18 +81,20 @@ const Symptome = () =>{
 
                 <section>
                     <h2 className=" flex flex-wrap font-bold text-2xl pt-10 pb-5 sm:pb-10 md:text-4xl lg:text-5xl " >Voici les produits qu’on vous&nbsp;<span className="text-green-600">conseils</span></h2>
-                    
-                    <div className="flex flex-wrap items-center mb-6">
-                        <span className="font-bold">Tag selectionné:&nbsp;</span>
-                        <div className="flex flex-wrap  gap-2">
-                            <Tag value='test'/>
-                            <Tag value='test'/>
-                            <Tag value='test'/>
-                            <Tag value='test'/>
-                            <Tag value='test'/>
-                            <Tag value='test'/>
+                    {filterByWords.length != 0 ?
+                        <div className="flex flex-wrap items-center mb-6">
+                            <span className="font-bold mb-4 sm:mb-0">Tag selectionné:&nbsp;</span>
+                            <div className="flex flex-wrap  gap-2">
+                                <Tag value='test' deleteOption/>
+                                <Tag value='test' deleteOption/>
+                                <Tag value='test' deleteOption/>
+                                <Tag value='test' deleteOption/>
+                                <Tag value='test' deleteOption/>
+                                <Tag value='test' deleteOption/>
+                            </div>
                         </div>
-                    </div>
+                        :''
+                    }
 
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-10">
                         <span className="font-bold">Trier par:</span>
@@ -109,12 +111,12 @@ const Symptome = () =>{
                                 color_hover={"bg-pink-500"}
                                 onClick={onToggle}
                             />
-                            <Dropdown 
+                            {/* <Dropdown 
                                 type={"Allergène"} 
                                 color={"bg-gray-600"} 
                                 color_hover={"bg-gray-500"}
                                 onClick={onToggle}
-                            />
+                            /> */}
                         </div>
                     </div>
 

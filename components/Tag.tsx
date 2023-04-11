@@ -1,22 +1,31 @@
+import { faXbox } from '@fortawesome/free-brands-svg-icons'
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 
 interface TagProps{
   value : string
+  deleteOption? : boolean
 }
 
-const Tag:React.FC<TagProps> = ({value}) => {
+const Tag:React.FC<TagProps> = ({value, deleteOption}) => {
   return (
-    <span 
-      className='
-        text-center
+    <span className={`
+        ${deleteOption ? 
+          'flex justify-between items-center px-2 ' 
+        : 
+          'text-center px-6'
+        }      
         w-fit 
-        px-6 
+        py-1 
         border 
         border-green-600 
-        rounded-xl 
-        text-green-600
-      '
-    > {value} </span>
+        rounded-full 
+        text-green-600`
+    }>
+      {value}
+      {deleteOption && <FontAwesomeIcon className="pl-4" icon={faXmark}/>}
+    </span>
   )
 }
 
