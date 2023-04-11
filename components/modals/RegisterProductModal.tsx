@@ -18,6 +18,7 @@ const RegisterProductModal = () => {
     const [composition,setComposition] = useState('')
     const [reference,setReference] = useState('')
     const [symptomeId,setSymptomeId] = useState('')
+    // const [tags,setTags] = useState([] as string[])
     const [isLoading,setIsLoading] = useState(false)
 
     const onToggle = useCallback(async ()=> {
@@ -38,7 +39,8 @@ const RegisterProductModal = () => {
                 use,
                 composition, 
                 reference,
-                symptomeId
+                symptomeId,
+                // tags
             })
 
             toast.success("Produit ajouter.")
@@ -60,7 +62,8 @@ const RegisterProductModal = () => {
         use,
         composition, 
         reference,
-        symptomeId
+        symptomeId,
+        // tags
     ])
     
 
@@ -116,6 +119,36 @@ const RegisterProductModal = () => {
                 value={property}
                 disabled={isLoading}
             />
+            {/* <label className='text-white' htmlFor="tags">Choisir les tags:</label>
+            <select 
+                multiple
+                name="tags" 
+                id="tags-select" 
+                onChange={(e)=>{
+                    console.log(e.target.value)
+                    setTags([e.target.value])
+                }}
+                className='
+                    w-full
+                    p-4
+                    text-lg
+                    text-white
+                    bg-black
+                    border-2
+                    border-neutral-800
+                    rounded-md
+                    outline-white
+                    focus:border-green-500
+                    focus:border-2
+                    transition
+                    disabled:bg-neutral-900
+                    disabled:opacity-70
+                    disabled:cursor-no-allowed
+                '
+            >
+                <option value="crème">Crème</option>
+                <option value="paumade">Paumade</option>
+            </select> */}
         </div>
     )
     const footerContent = (
