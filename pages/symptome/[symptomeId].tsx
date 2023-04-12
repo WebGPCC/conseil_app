@@ -107,15 +107,9 @@ const Symptome = () =>{
 
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-10">
                         <span className="font-bold">Trier par:</span>
-                        <div className="flex flex-wrap items-center gap-2 ">
+                        <div className="flex flex-wrap items-center gap-2 "> 
                             <Dropdown 
-                                type={"Contenant"} 
-                                color={"bg-green-600"} 
-                                color_hover={"bg-green-500"}
-                                onClick={onToggle}
-                            /> 
-                            <Dropdown 
-                                type={"Voix"} 
+                                type={"Voie"} 
                                 color={"bg-pink-600"} 
                                 color_hover={"bg-pink-500"}
                                 onClick={onToggle}
@@ -126,8 +120,6 @@ const Symptome = () =>{
                     <div className="flex flex-wrap gap-10 justify-center sm:justify-around">
                         {
                             symptomeFetch.produits.length != 0 ? 
-                                //verifier si produitsAfficher existe sinon renvoyer une erreur
-                                //utiliser produitsAfficher à la place de "symptomeFetch.produits"
                                 filterByWords.length != 0 ?
                                     displayedProduct.length != 0 ?
                                         displayedProduct.map((produit:Record<string,any>)=>(

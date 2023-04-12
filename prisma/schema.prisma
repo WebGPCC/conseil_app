@@ -27,6 +27,7 @@ model Produit {
   composition String
   reference   String
   symptomeId  String @db.ObjectId
+  voies       String[]
 
   symptome Symptome @relation(fields: [symptomeId], references: [id], onDelete: Cascade)   
 }
