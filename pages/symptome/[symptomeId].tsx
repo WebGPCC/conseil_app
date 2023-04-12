@@ -5,7 +5,7 @@ import Dropdown from "@/components/Dropdown";
 import useSymptome from "@/hooks/useSymptome";
 import { useCallback, useEffect, useState } from "react";
 import Tag from "@/components/Tag";
-import ErrorSearch from "@/components/errorSearch";
+import ErrorSearch from "@/components/ErrorSearch";
 
 const Symptome = () =>{
     
@@ -15,7 +15,7 @@ const Symptome = () =>{
     const [listVoies, setListVoies] = useState([] as string[])
     const [tags, setTags] = useState<string[]>([])
 
-    const displayedProduct = symptomeFetch?.produits.filter((produit:Record<string,any>)=>produit.voies.some((voie:string)=>listVoies.includes(voie)))
+    const displayedProduct = symptomeFetch?.produits.filter((produit:Record<string,any>)=>produit.voies.some((voie:string)=>tags.includes(voie)))
     
     useEffect(() => {
         symptomeFetch?.produits.map((p:Record<string,any>)=>{
@@ -24,12 +24,18 @@ const Symptome = () =>{
     },[symptomeFetch,setListVoies])
 
    const handleClickRemove = useCallback(async (event:React.MouseEvent<SVGSVGElement>)=>{
-    //
-   },[])
+        event.preventDefault()
+        const element = event.target as HTMLElement
+        const parentElement = element.parentElement
+        setTags(tags.filter((tag)=>{tag!=parentElement?.innerText}))
+   },[tags,setTags])
 
     const handleClickTags = useCallback(async (event:React.MouseEvent<HTMLElement>)=>{
-    //
-    },[])
+        event.preventDefault()
+        const element = event.target as HTMLElement
+        console.log(element.innerText)
+        setTags((prevTags)=>[...prevTags,element.innerText])
+    },[setTags])
 
     
     if(!symptomeFetch || isLoading){
@@ -95,7 +101,7 @@ const Symptome = () =>{
                             <Dropdown 
                                 type={"Voie"} 
                                 color={"bg-pink-600"} 
-                                color_hover={"bg-pink-500"}
+                                color_hover={"bg-pink-600"}
                                 onClick={handleClickTags}
                                 wordList={listVoies}
                             />

@@ -30,19 +30,13 @@ const Dropdown: React.FC<Props> = ({color,color_hover,type, onClick, wordList}) 
             </button>
             <ul className="dropdown-menu absolute hidden text-white rounded-full pt-1 w-full z-50">
                 {wordList?.map((word)=>
-                    (<li key={word} onClick={onClick} >
-                        <a  
-                            className={`text-white rounded-lg ${color} hover:${color_hover} py-2 pl-4 block whitespace-no-wrap`} 
-                            href="#"
-                        >
-                            {word}
-                        </a>
-                    </li>)
+                    <li key={word} 
+                        onClick={onClick} 
+                        className={`text-white rounded-lg ${color} hover:${color_hover} py-2 pl-4 block whitespace-no-wrap cursor-pointer`} 
+                    >
+                        {word}
+                    </li>
                 )}
-                
-                {/* <li onClick={onClick} className=""><a className={"text-white rounded-t-lg "+color+" hover:"+color_hover+" py-2 pl-4 block whitespace-no-wrap"} href="#">Crème</a></li>
-                <li onClick={onClick} className=""><a className={"text-white "+color+" hover:"+color_hover+" py-2 pl-4 block whitespace-no-wrap"} href="#">Paumade</a></li>
-                <li onClick={onClick} className=""><a className={"text-white rounded-b-lg "+color+" hover:"+color_hover+" py-2 pl-4 block whitespace-no-wrap"} href="#">Tous les -al</a></li> */}
             </ul>
         </div>
   )

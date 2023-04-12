@@ -121,7 +121,6 @@ const RegisterProductModal = () => {
             />
             <label className='text-white' htmlFor="tags">Choisir les tags:</label>
             <select 
-                multiple
                 name="voies" 
                 id="tags-select" 
                 onChange={(e)=>{
