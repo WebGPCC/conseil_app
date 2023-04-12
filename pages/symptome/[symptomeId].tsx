@@ -14,6 +14,7 @@ const Symptome = () =>{
     const {data : symptomeFetch, isLoading} = useSymptome(symptomeId as string)
     const [listVoies, setListVoies] = useState([] as string[])
     const [tags, setTags] = useState<string[]>([])
+    const [tmp,setTmp] = useState<HTMLElement | null>(null)
 
     const displayedProduct = symptomeFetch?.produits.filter((produit:Record<string,any>)=>produit.voies.some((voie:string)=>tags.includes(voie)))
     
@@ -27,14 +28,18 @@ const Symptome = () =>{
         event.preventDefault()
         const element = event.target as HTMLElement
         const parentElement = element.parentElement
-        setTags(tags.filter((tag)=>{tag!=parentElement?.innerText}))
-   },[tags,setTags])
+        setTags(tags.filter((tag)=>{tag == (parentElement?.innerText)}))
+        tmp? tmp.style.display = 'block' : ''
+        console.log(tags)
+   },[tags,tmp])
 
     const handleClickTags = useCallback(async (event:React.MouseEvent<HTMLElement>)=>{
         event.preventDefault()
         const element = event.target as HTMLElement
         console.log(element.innerText)
         setTags((prevTags)=>[...prevTags,element.innerText])
+        setTmp(element)
+        element.style.display = 'none'
     },[setTags])
 
     
