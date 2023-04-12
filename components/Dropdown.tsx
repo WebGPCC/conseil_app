@@ -32,9 +32,10 @@ const Dropdown: React.FC<Props> = ({color,color_hover,type, onClick, wordList}) 
                 {wordList?.map((word)=>
                     (<li key={word} onClick={onClick} >
                         <a  
-                            className={"text-white rounded-lg "+color+" hover:"+color_hover+" py-2 pl-4 block whitespace-no-wrap"} 
+                            className={`text-white rounded-lg ${color} hover:${color_hover} py-2 pl-4 block whitespace-no-wrap`} 
                             href="#"
-                        >{word}
+                        >
+                            {word}
                         </a>
                     </li>)
                 )}

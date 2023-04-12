@@ -8,16 +8,14 @@ import Tag from "@/components/Tag";
 import ErrorSearch from "@/components/errorSearch";
 
 const Symptome = () =>{
-
     
     const router = useRouter(); 
     const {symptomeId} = router.query;
     const {data : symptomeFetch, isLoading} = useSymptome(symptomeId as string)
-    const [tags, setTags] = useState<string[]>([])
     const [listVoies, setListVoies] = useState([] as string[])
+    const [tags, setTags] = useState<string[]>([])
 
-    const displayedProduct = symptomeFetch.produits
-    .filter((produit:Record<string,any>)=>produit.voies.some((voie:string)=>listVoies.includes(voie)))
+    const displayedProduct = symptomeFetch?.produits.filter((produit:Record<string,any>)=>produit.voies.some((voie:string)=>listVoies.includes(voie)))
     
     useEffect(() => {
         symptomeFetch?.produits.map((p:Record<string,any>)=>{
@@ -80,12 +78,12 @@ const Symptome = () =>{
                             <span className="font-bold">Tag selectionné:&nbsp;</span>
                             <div className="flex flex-wrap gap-2">
                                 {tags.map((word)=>
-                                    (<Tag
+                                    <Tag
                                         key={word} 
                                         value={word} 
                                         onClick={handleClickRemove}
                                         deleteOption
-                                    />)
+                                    />
                                 )}
                             </div>
                         </div>
@@ -106,20 +104,20 @@ const Symptome = () =>{
 
                     <div className="flex flex-wrap gap-10 justify-center sm:justify-around">
                         {symptomeFetch.produits.length != 0 ? 
-                                tags.length != 0 ?
-                                    displayedProduct.length != 0 ?
-                                        displayedProduct.map((produit:Record<string,any>)=>(
-                                            <ProductCard key={produit.id} data={produit}/>
-                                        ))
-                                    :
-                                        <ErrorSearch phrase="Aucun produit ne correspond à la recherche"/>
-
-                                : 
-                                    symptomeFetch.produits.map((produit:Record<string,any>)=>(
+                            tags.length != 0 ?
+                                (displayedProduct.length != 0 ?
+                                    displayedProduct.map((produit:Record<string,any>)=>(
                                         <ProductCard key={produit.id} data={produit}/>
-                                    ))
+                                    ))  
+                                :
+                                    <ErrorSearch phrase="Aucun produit ne correspond à la recherche"/>
+                                )
                             : 
-                                <ErrorSearch phrase="Nous n'avons pas de produits pour le {symptomeFetch.name} pour le moment"/>
+                                symptomeFetch.produits.map((produit:Record<string,any>)=>(
+                                    <ProductCard key={produit.id} data={produit}/>
+                                ))
+                        : 
+                            <ErrorSearch phrase="Nous n'avons pas de produits pour le {symptomeFetch.name} pour le moment"/>
                         }
                     </div>
                 </section>
