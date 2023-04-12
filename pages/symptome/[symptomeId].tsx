@@ -89,9 +89,9 @@ const Symptome = () =>{
                 <section>
                     <h2 className=" flex flex-wrap font-bold text-2xl pt-10 pb-5 sm:pb-10 md:text-4xl lg:text-5xl " >Voici les produits qu’on vous&nbsp;<span className="text-green-600">conseils</span></h2>
                     {filterByWords.length != 0 ?
-                        <div className="flex flex-wrap items-center mb-6">
-                            <span className="font-bold mb-4 sm:mb-0">Tag selectionné:&nbsp;</span>
-                            <div className="flex flex-wrap  gap-2">
+                        <div className="flex flex-wrap items-center gap-2 mb-6">
+                            <span className="font-bold">Tag selectionné:&nbsp;</span>
+                            <div className="flex flex-wrap gap-2">
                                 {filterByWords.map((word)=>
                                     (<Tag
                                         key={word} 
