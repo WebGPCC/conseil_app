@@ -3,49 +3,35 @@ import Image from "next/image";
 import ProductCard from "@/components/ProductCard";
 import Dropdown from "@/components/Dropdown";
 import useSymptome from "@/hooks/useSymptome";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Tag from "@/components/Tag";
+import ErrorSearch from "@/components/errorSearch";
 
 const Symptome = () =>{
+
+    
     const router = useRouter(); 
     const {symptomeId} = router.query;
     const {data : symptomeFetch, isLoading} = useSymptome(symptomeId as string)
-    const [filterByWords, setFilterByWords] = useState([] as Array<string>)
-    const [displayedProduct, setDisplayedProduct] = useState([])
+    const [tags, setTags] = useState<string[]>([])
+    const [listVoies, setListVoies] = useState([] as string[])
 
-   const handleClick = useCallback(async (event:React.MouseEvent<SVGSVGElement>)=>{
-        event.stopPropagation();
-        event.preventDefault();
-        const element = event.target  as HTMLElement
-        setFilterByWords(filterByWords.filter((word) => word.includes(element.innerText)))
-   },[filterByWords,setFilterByWords])
-
-    const onToggle = useCallback(async (event:React.MouseEvent<HTMLElement>)=>{
-        const option = event.target as HTMLElement
-        const newWord = option.innerText.toLowerCase() 
-        const isFound = filterByWords.some((word)=>{
-            if(word == newWord)
-                return true
-
-            return false
+    const displayedProduct = symptomeFetch.produits
+    .filter((produit:Record<string,any>)=>produit.voies.some((voie:string)=>listVoies.includes(voie)))
+    
+    useEffect(() => {
+        symptomeFetch?.produits.map((p:Record<string,any>)=>{
+            setListVoies(p.voies)
         })
+    },[symptomeFetch,setListVoies])
 
-        if(!isFound){    
-            setFilterByWords((filterByWords)=>[...filterByWords, newWord])
-        }else{
-            setFilterByWords(filterByWords.filter(word=>word != newWord))
-        }
+   const handleClickRemove = useCallback(async (event:React.MouseEvent<SVGSVGElement>)=>{
+    //
+   },[])
 
-        const produitFiltered = symptomeFetch.produits.filter((produit:Record<string,any>)=>{
-            filterByWords.some((word)=>produit.tags_1.includes(word)) ||
-            filterByWords.some((word)=>produit.tags_2.includes(word)) ||
-            filterByWords.some((word)=>produit.tags_3.includes(word))
-        })
-        setDisplayedProduct(produitFiltered)
-
-    },[filterByWords,symptomeFetch])
+    const handleClickTags = useCallback(async (event:React.MouseEvent<HTMLElement>)=>{
+    //
+    },[])
 
     
     if(!symptomeFetch || isLoading){
@@ -53,6 +39,7 @@ const Symptome = () =>{
     }
 
     return (
+        
         <div className="pb-20">
             <div className="flex justify-center items-center ">
                 <Image 
@@ -88,21 +75,20 @@ const Symptome = () =>{
 
                 <section>
                     <h2 className=" flex flex-wrap font-bold text-2xl pt-10 pb-5 sm:pb-10 md:text-4xl lg:text-5xl " >Voici les produits qu’on vous&nbsp;<span className="text-green-600">conseils</span></h2>
-                    {filterByWords.length != 0 ?
+                    {tags.length != 0 &&
                         <div className="flex flex-wrap items-center gap-2 mb-6">
                             <span className="font-bold">Tag selectionné:&nbsp;</span>
                             <div className="flex flex-wrap gap-2">
-                                {filterByWords.map((word)=>
+                                {tags.map((word)=>
                                     (<Tag
                                         key={word} 
                                         value={word} 
-                                        onClick={handleClick}
+                                        onClick={handleClickRemove}
                                         deleteOption
                                     />)
                                 )}
                             </div>
                         </div>
-                        :''
                     }
 
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-10">
@@ -112,67 +98,28 @@ const Symptome = () =>{
                                 type={"Voie"} 
                                 color={"bg-pink-600"} 
                                 color_hover={"bg-pink-500"}
-                                onClick={onToggle}
+                                onClick={handleClickTags}
+                                wordList={listVoies}
                             />
                         </div>
                     </div>
 
                     <div className="flex flex-wrap gap-10 justify-center sm:justify-around">
-                        {
-                            symptomeFetch.produits.length != 0 ? 
-                                filterByWords.length != 0 ?
+                        {symptomeFetch.produits.length != 0 ? 
+                                tags.length != 0 ?
                                     displayedProduct.length != 0 ?
                                         displayedProduct.map((produit:Record<string,any>)=>(
                                             <ProductCard key={produit.id} data={produit}/>
                                         ))
                                     :
-                                    (
-                                        <span className=" 
-                                            flex 
-                                            justify-center 
-                                            items-center 
-                                            text-bold 
-                                            text-xl 
-                                            text-gray-700 
-                                            py-8 
-                                            px-4 
-                                            border 
-                                            border-2 
-                                            border-dotted
-                                            rounded-xl
-                                        ">
-                                            <span className="text-4 xl mr-5">
-                                                <FontAwesomeIcon icon={faMagnifyingGlass}/>
-                                            </span>
-                                            Aucun produit ne correspond à la recherche
-                                        </span>
-                                    )
+                                        <ErrorSearch phrase="Aucun produit ne correspond à la recherche"/>
 
                                 : 
                                     symptomeFetch.produits.map((produit:Record<string,any>)=>(
                                         <ProductCard key={produit.id} data={produit}/>
                                     ))
-                            : (
-                                <span className=" 
-                                    flex 
-                                    justify-center 
-                                    items-center 
-                                    text-bold 
-                                    text-xl 
-                                    text-gray-700 
-                                    py-8 
-                                    px-4 
-                                    border 
-                                    border-2 
-                                    border-dotted
-                                    rounded-xl
-                                ">
-                                    <span className="text-4 xl mr-5">
-                                        <FontAwesomeIcon icon={faMagnifyingGlass}/>
-                                    </span>
-                                    Nous n&apos;avons pas de produits pour le {symptomeFetch.name} pour le moment
-                                </span>
-                            )
+                            : 
+                                <ErrorSearch phrase="Nous n'avons pas de produits pour le {symptomeFetch.name} pour le moment"/>
                         }
                     </div>
                 </section>

@@ -18,7 +18,7 @@ const RegisterProductModal = () => {
     const [composition,setComposition] = useState('')
     const [reference,setReference] = useState('')
     const [symptomeId,setSymptomeId] = useState('')
-    // const [tags,setTags] = useState([] as string[])
+    const [voies,setVoies] = useState([] as string[])
     const [isLoading,setIsLoading] = useState(false)
 
     const onToggle = useCallback(async ()=> {
@@ -40,7 +40,7 @@ const RegisterProductModal = () => {
                 composition, 
                 reference,
                 symptomeId,
-                // tags
+                voies
             })
 
             toast.success("Produit ajouter.")
@@ -63,7 +63,7 @@ const RegisterProductModal = () => {
         composition, 
         reference,
         symptomeId,
-        // tags
+        voies
     ])
     
 
@@ -119,14 +119,14 @@ const RegisterProductModal = () => {
                 value={property}
                 disabled={isLoading}
             />
-            {/* <label className='text-white' htmlFor="tags">Choisir les tags:</label>
+            <label className='text-white' htmlFor="tags">Choisir les tags:</label>
             <select 
                 multiple
-                name="tags" 
+                name="voies" 
                 id="tags-select" 
                 onChange={(e)=>{
                     console.log(e.target.value)
-                    setTags([e.target.value])
+                    setVoies([e.target.value])
                 }}
                 className='
                     w-full
@@ -146,9 +146,10 @@ const RegisterProductModal = () => {
                     disabled:cursor-no-allowed
                 '
             >
-                <option value="crème">Crème</option>
-                <option value="paumade">Paumade</option>
-            </select> */}
+                <option value="oral">Oral</option>
+                <option value="local">Local</option>
+                <option value="nazal">Nazal</option>
+            </select>
         </div>
     )
     const footerContent = (

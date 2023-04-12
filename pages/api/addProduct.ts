@@ -20,7 +20,7 @@ export default async function handler(
             composition,
             reference,
             symptomeId,
-            // tags
+            voies
         } = req.body
 
         const produit = await prisma.produit.create({
@@ -33,7 +33,7 @@ export default async function handler(
                 composition : composition, 
                 reference : reference,
                 symptomeId :symptomeId,
-                // tags: tags
+                voies: voies
             }
         })
 
