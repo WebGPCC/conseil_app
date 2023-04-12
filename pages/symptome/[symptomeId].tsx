@@ -12,8 +12,15 @@ const Symptome = () =>{
     const router = useRouter(); 
     const {symptomeId} = router.query;
     const {data : symptomeFetch, isLoading} = useSymptome(symptomeId as string)
-    const [filterByWords, setFilterByWords] = useState([] as string[])
+    const [filterByWords, setFilterByWords] = useState([] as Array<string>)
     const [displayedProduct, setDisplayedProduct] = useState([])
+
+   const handleClick = useCallback(async (event:React.MouseEvent<SVGSVGElement>)=>{
+        event.stopPropagation();
+        event.preventDefault();
+        const element = event.target  as HTMLElement
+        setFilterByWords(filterByWords.filter((word) => word.includes(element.innerText)))
+   },[filterByWords,setFilterByWords])
 
     const onToggle = useCallback(async (event:React.MouseEvent<HTMLElement>)=>{
         const option = event.target as HTMLElement
@@ -51,7 +58,7 @@ const Symptome = () =>{
                 <Image 
                     src={symptomeFetch.coverImage} 
                     alt="Image"
-                    className="w-full brightness-50 object-cover h-[130px]"
+                    className="w-full brightness-50 object-cover object-center h-[30vh] sm:h-[40vh] "
                     width='100'
                     height='100'
                 />
@@ -85,12 +92,14 @@ const Symptome = () =>{
                         <div className="flex flex-wrap items-center mb-6">
                             <span className="font-bold mb-4 sm:mb-0">Tag selectionné:&nbsp;</span>
                             <div className="flex flex-wrap  gap-2">
-                                <Tag value='test' deleteOption/>
-                                <Tag value='test' deleteOption/>
-                                <Tag value='test' deleteOption/>
-                                <Tag value='test' deleteOption/>
-                                <Tag value='test' deleteOption/>
-                                <Tag value='test' deleteOption/>
+                                {filterByWords.map((word)=>
+                                    (<Tag
+                                        key={word} 
+                                        value={word} 
+                                        onClick={handleClick}
+                                        deleteOption
+                                    />)
+                                )}
                             </div>
                         </div>
                         :''
@@ -100,7 +109,7 @@ const Symptome = () =>{
                         <span className="font-bold">Trier par:</span>
                         <div className="flex flex-wrap items-center gap-2 ">
                             <Dropdown 
-                                type={"Contenance"} 
+                                type={"Contenant"} 
                                 color={"bg-green-600"} 
                                 color_hover={"bg-green-500"}
                                 onClick={onToggle}
@@ -111,12 +120,6 @@ const Symptome = () =>{
                                 color_hover={"bg-pink-500"}
                                 onClick={onToggle}
                             />
-                            {/* <Dropdown 
-                                type={"Allergène"} 
-                                color={"bg-gray-600"} 
-                                color_hover={"bg-gray-500"}
-                                onClick={onToggle}
-                            /> */}
                         </div>
                     </div>
 

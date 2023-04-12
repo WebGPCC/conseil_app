@@ -6,13 +6,12 @@ import React from 'react'
 interface TagProps{
   value : string
   deleteOption? : boolean
-  onClick?: (event:React.MouseEvent<HTMLElement>)=>void 
+  onClick: (event:React.MouseEvent<SVGSVGElement>) => void
 }
 
 const Tag:React.FC<TagProps> = ({value, deleteOption,onClick}) => {
   return (
     <span
-      onClick={onClick} 
       className={`
         ${deleteOption ? 
           'flex justify-between items-center px-2 ' 
@@ -27,8 +26,17 @@ const Tag:React.FC<TagProps> = ({value, deleteOption,onClick}) => {
         text-green-600`
       }
     >
-      {value}
-      {deleteOption && <FontAwesomeIcon className="pl-4 cursor-pointer" icon={faXmark}/>}
+      <span id={`tag_${value}`}>
+        {value}
+      </span>
+
+      {deleteOption && (
+        <FontAwesomeIcon 
+          onClick={onClick}
+          className="pl-4 cursor-pointer" 
+          icon={faXmark} 
+        />
+      )}
     </span>
   )
 }
