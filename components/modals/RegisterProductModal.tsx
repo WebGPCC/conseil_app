@@ -5,6 +5,7 @@ import useRegisterProductModal from '@/hooks/useRegisterProductModal'
 import useRegisterSymptomeModal from '@/hooks/useRegisterSymptomeModal'
 import Input from '../global/Input'
 import Modal from './Modal'
+import TextArea from '../global/TextArea'
 
 const RegisterProductModal = () => {
     const productModal = useRegisterProductModal()
@@ -95,30 +96,36 @@ const RegisterProductModal = () => {
                     disabled={isLoading}
                 />
             </div>
-            <Input
-                placeholder='Description'
-                onChange={(e)=>setDescription(e.target.value)}
-                value={description}
-                disabled={isLoading}
-                />
-            <Input
-                placeholder='Utilisation'
-                onChange={(e)=>setUse(e.target.value)}
-                value={use}
-                disabled={isLoading}
-            />
-            <Input
-                placeholder='Composition'
-                onChange={(e)=>setComposition(e.target.value)}
-                value={composition}
-                disabled={isLoading}
-            />
-            <Input
-                placeholder='Propriété'
-                onChange={(e)=>setProperty(e.target.value)}
-                value={property}
-                disabled={isLoading}
-            />
+            <div className='flex flex-wrap gap-2'>
+                <div className='flex w-full gap-2'>
+                    <TextArea
+                        placeholder='Description'
+                        onChange={(e)=>setDescription(e.target.value)}
+                        value={description}
+                        disabled={isLoading}
+                    />
+                    <TextArea
+                        placeholder='Utilisation'
+                        onChange={(e)=>setUse(e.target.value)}
+                        value={use}
+                        disabled={isLoading}
+                    />
+                </div>
+                <div className='flex w-full gap-2'>
+                    <TextArea
+                        placeholder='Composition'
+                        onChange={(e)=>setComposition(e.target.value)}
+                        value={composition}
+                        disabled={isLoading}
+                    />
+                    <TextArea
+                        placeholder='Propriété'
+                        onChange={(e)=>setProperty(e.target.value)}
+                        value={property}
+                        disabled={isLoading}
+                    />
+                </div>
+            </div>
             <label className='text-white' htmlFor="tags">Choisir les tags:</label>
             <select 
                 name="voies" 

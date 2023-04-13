@@ -96,7 +96,7 @@ const Modal: React.FC<ModalProps> = ({
                             flex
                             items-center
                             justify-between
-                            p-10
+                            py-5 px-10
                             rounded-t           
                         '
                     >
@@ -135,7 +135,7 @@ const Modal: React.FC<ModalProps> = ({
                         {body}
                     </div>
                     {/* footer */}
-                    <div className='flex flex-col gap-2 p-10 bg-black'>
+                    <div className='flex flex-col gap-2 py-5 px-10 bg-black rounded-b'>
                         <Button 
                             disabled={disabled}  
                             label={actionLabel}

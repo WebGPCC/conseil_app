@@ -6,6 +6,7 @@ import Input from '../global/Input'
 import Modal from './Modal'
 import { toast } from 'react-hot-toast'
 import ImageUpload from '../ImageUpload'
+import TextArea from '../global/TextArea'
 
 const RegisterSymptomeModal = () => {
     const productModal = useRegisterProductModal()
@@ -74,8 +75,8 @@ const RegisterSymptomeModal = () => {
                 value={name}
                 disabled={isLoading}
             />
-            <Input
-                placeholder='précaution'
+            <TextArea
+                placeholder='Précaution'
                 onChange={(e)=>setPrecaution(e.target.value)}
                 value={precaution}
                 disabled={isLoading}
