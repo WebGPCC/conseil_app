@@ -20,28 +20,30 @@ const Produit = () => {
     console.log('voies',produitFetch)
 
   return (
-    <div className="flex flex-col sm:flex-row">
+    <div className="flex flex-col sm:flex-row pt-10">
         <aside className="relative sm:w-1/2 w-full ">
-          <span className="text-gray-400 text-lg absolute bottom-2 right-2 ">ref: {produitFetch.reference}</span>
           <Image 
-            className="sticky top-0 w-full object-fill"
+            className="sticky top-0 w-full object-cover"
             src={image_test}
             alt="image_product"
           />  
         </aside>
-        <main className=" w-full px-5 sm:w-1/2">
-          <h2 className="text-xl">{produitFetch.brand}</h2>
-          <h1 className="font-bold text-4xl">
-              {produitFetch.name}
-          </h1>
 
-          <div className="flex flex-warp gap-2 mt-5">
-            {
-              produitFetch.voies.map((tag:string)=>(
-                <Tag key={tag} value={tag}/>
-              ))
-            }
-          </div>
+        <main className=" w-full h-full scroll-smooth px-5 sm:w-1/2 ">
+          <header className="sticky top-0 bg-white rounded-b drop-shadow p-5">
+            <h2 className="text-xl">{produitFetch.brand}</h2>
+            <h1 className="font-bold text-4xl">
+                {produitFetch.name}
+            </h1>
+            <span className="text-gray-400 text-xl">Ref: {produitFetch.reference}</span>
+            <div className="flex flex-warp gap-2 pt-5">
+              {
+                produitFetch.voies.map((tag:string)=>(
+                  <Tag key={tag} value={tag}/>
+                ))
+              }
+            </div>
+          </header>
 
           <div className="bg-white min-h-sceen">
             <div className="grid divide-y divide-neutral-200 mt-8">
