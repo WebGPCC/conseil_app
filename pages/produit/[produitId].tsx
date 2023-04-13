@@ -4,7 +4,7 @@ import image_test from "@/public/image_test.png"
 
 import React from 'react'
 import Tag from "@/components/Tag";
-import { faArrowAltCircleUp, faLeaf } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faLeaf } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useProduct from "@/hooks/useProduct";
 
@@ -30,7 +30,7 @@ const Produit = () => {
         </aside>
 
         <main className=" w-full h-full px-5 sm:w-1/2">
-          <header className="sticky top-0 bg-white rounded-b drop-shadow p-5">
+          <header className="sticky top-0 bg-white rounded-b drop-shadow p-5 z-50">
             <h2 className="text-xl">{produitFetch.brand}</h2>
             <h1 className="font-bold text-4xl">
                 {produitFetch.name}
@@ -52,8 +52,7 @@ const Produit = () => {
                   <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
                     <span className="text-lg"><FontAwesomeIcon className="mr-2" icon={faLeaf}/>Description</span>
                       <span className="transition group-open:rotate-180">
-                      <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
-                      </svg>  
+                      <FontAwesomeIcon icon={faChevronDown} className='h-4' />  
                     </span>
                   </summary>
                 <p className="text-neutral-600 mt-3 group-open:animate-fadeIn">
@@ -61,13 +60,13 @@ const Produit = () => {
                 </p>
                 </details>
               </div>
+
               <div className="py-5">
                 <details className="group">
                   <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
                   <span className="text-lg"><FontAwesomeIcon className="mr-2" icon={faLeaf}/>Propriétés et bienfaits</span>
                   <span className="transition group-open:rotate-180">
-                    <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
-                    </svg>
+                  <FontAwesomeIcon icon={faChevronDown} className='h-4' />  
                   </span>
                 </summary>
                 <p className="text-neutral-600 mt-3 group-open:animate-fadeIn">
@@ -75,13 +74,13 @@ const Produit = () => {
                 </p>
                 </details>
               </div>
+
               <div className="py-5">
                 <details className="group">
                   <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
                     <span className="text-lg"><FontAwesomeIcon className="mr-2" icon={faLeaf}/>Conseils d’utilisation</span>
                     <span className="transition group-open:rotate-180">
-                      <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
-                      </svg>
+                      <FontAwesomeIcon icon={faChevronDown} className='h-4' />  
                     </span>
                   </summary>
                   <p className="text-neutral-600 mt-3 group-open:animate-fadeIn">
@@ -89,14 +88,14 @@ const Produit = () => {
                   </p>
                 </details>
               </div>
+
               <div className="py-5">
                 <details className="group">
                 <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
                 <span className="text-lg"><FontAwesomeIcon className="mr-2" icon={faLeaf}/>Composition</span>
                 <span className="transition group-open:rotate-180">
-                      <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
-                </svg>
-                    </span>
+                  <FontAwesomeIcon icon={faChevronDown} className='h-4' />  
+                </span>
                 </summary>
                 <p className="text-neutral-600 mt-3 group-open:animate-fadeIn">
                   {produitFetch.composition}
