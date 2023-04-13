@@ -14,7 +14,6 @@ const Symptome = () =>{
     const {data : symptomeFetch, isLoading} = useSymptome(symptomeId as string)
     const [listVoies, setListVoies] = useState([] as string[])
     const [tags, setTags] = useState<string[]>([])
-    const [tmp,setTmp] = useState<HTMLElement | null>(null)
 
     const displayedProduct = symptomeFetch?.produits.filter((produit:Record<string,any>)=>produit.voies.some((voie:string)=>tags.includes(voie)))
     
@@ -24,22 +23,25 @@ const Symptome = () =>{
         })
     },[symptomeFetch,setListVoies])
 
-   const handleClickRemove = useCallback(async (event:React.MouseEvent<SVGSVGElement>)=>{
+   const handleClickRemove = useCallback(async (event:React.MouseEvent<HTMLElement>)=>{
         event.preventDefault()
-        const element = event.target as HTMLElement
-        const parentElement = element.parentElement
-        setTags(tags.filter((tag)=>{tag == (parentElement?.innerText)}))
-        tmp? tmp.style.display = 'block' : ''
-        console.log(tags)
-   },[tags,tmp])
+        event.stopPropagation()
+        const element = event.target as HTMLTextAreaElement
+        // const parent = element.parentElement
+        // const word = parent?.parentElement?.innerText.replace(/ /g,'')
+        console.log(element.firstChild?.textContent)
+        const word = element.firstChild?.textContent?.replace(/ /g,'')
+        word && setTags(tags.filter((tag)=>!tag.includes(word)))
+        const domElement = document.getElementById(word as string)
+        domElement && (domElement.style.display = 'block')
+   },[tags,setTags])
 
     const handleClickTags = useCallback(async (event:React.MouseEvent<HTMLElement>)=>{
         event.preventDefault()
         const element = event.target as HTMLElement
-        console.log(element.innerText)
         setTags((prevTags)=>[...prevTags,element.innerText])
-        setTmp(element)
-        element.style.display = 'none'
+        const domElement = document.getElementById(element.innerText)
+        domElement && (domElement.style.display = 'none')
     },[setTags])
 
     
