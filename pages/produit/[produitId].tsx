@@ -21,7 +21,7 @@ const Produit = () => {
 
   return (
     <div className="relative flex flex-col sm:flex-row pt-10">
-        <aside className="relative sm:w-1/2 w-full ">
+        <aside className="sm:w-1/2 w-full">
           <Image 
             className="sticky top-0 w-full object-cover"
             src={image_test}
@@ -30,7 +30,7 @@ const Produit = () => {
         </aside>
 
         <main className=" w-full h-full px-5 sm:w-1/2">
-          <header className="sticky top-0 bg-white rounded-b drop-shadow p-5 z-50">
+          <header className="sticky top-0 bg-white rounded-b drop-shadow p-5 z-10">
             <h2 className="text-xl">{produitFetch.brand}</h2>
             <h1 className="font-bold text-4xl">
                 {produitFetch.name}
@@ -50,7 +50,8 @@ const Produit = () => {
               <div className="py-5 ">
                 <details className="group">
                   <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
-                    <span className="text-lg"><FontAwesomeIcon className="mr-2" icon={faLeaf}/>Description</span>
+                    <span className="text-lg">
+                      <FontAwesomeIcon className="mr-2" icon={faLeaf}/>Description</span>
                       <span className="transition group-open:rotate-180">
                       <FontAwesomeIcon icon={faChevronDown} className='h-4' />  
                     </span>
