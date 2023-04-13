@@ -28,13 +28,13 @@ const Dropdown: React.FC<Props> = ({color,color_hover,type, onClick, wordList}) 
                     <FontAwesomeIcon icon={faChevronDown}/>
                 }
             </button>
-            <ul className="dropdown-menu absolute hidden text-white rounded-full pt-1 w-full z-50">
+            <ul className={`dropdown-menu absolute hidden text-white rounded-xl mt-1 w-full z-50 ${color}`}>
                 {wordList?.map((word)=>
                     <li 
                         id={word}
                         key={word} 
                         onClick={onClick} 
-                        className={`text-white rounded-md ${color} hover:${color_hover} py-2 pl-4 mb- block whitespace-no-wrap cursor-pointer`} 
+                        className={`text-white hover:${color_hover} py-2 pl-4 block whitespace-no-wrap cursor-pointer`} 
                     >
                         {word}
                     </li>
