@@ -14,10 +14,10 @@ const Produit = () => {
     const router = useRouter();
     const {produitId} = router.query;
     const {data : produitFetch, isLoading} = useProduct(produitId as string)
-    
-  if(!produitFetch || isLoading){
-    return (<div className="flex justify-center items-center h-[80vh] text-3xl text-bold">Loading..</div>)
-  }
+    if(!produitFetch || isLoading){
+      return (<div className="flex justify-center items-center h-[80vh] text-3xl text-bold">Loading..</div>)
+    }
+    console.log('voies',produitFetch)
 
   return (
     <div className="flex flex-col sm:flex-row">
@@ -36,9 +36,11 @@ const Produit = () => {
           </h1>
 
           <div className="flex flex-warp gap-2 mt-5">
-            <Tag value="Tag"/>
-            <Tag value="Tag"/>
-            <Tag value="Tag"/>
+            {
+              produitFetch.voies.map((tag:string)=>(
+                <Tag key={tag} value={tag}/>
+              ))
+            }
           </div>
 
           <div className="bg-white min-h-sceen">

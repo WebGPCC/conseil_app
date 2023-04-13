@@ -103,16 +103,21 @@ const Symptome = () =>{
                     }
 
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-10">
-                        <span className="font-bold">Trier par:</span>
-                        <div className="flex flex-wrap items-center gap-2 "> 
-                            <Dropdown 
-                                type={"Voie"} 
-                                color={"bg-pink-600"} 
-                                color_hover={"bg-pink-600"}
-                                onClick={handleClickTags}
-                                wordList={listVoies}
-                            />
-                        </div>
+                            {
+                                listVoies.length != 0 &&
+                                (<>                                
+                                    <span className="font-bold">Trier par:</span>
+                                    <div className="flex flex-wrap items-center gap-2 "> 
+                                        <Dropdown 
+                                            type={"Voie"} 
+                                            color={"bg-pink-600"} 
+                                            color_hover={"bg-pink-600"}
+                                            onClick={handleClickTags}
+                                            wordList={listVoies}
+                                        />
+                                    </div>
+                                </>)
+                            }
                     </div>
 
                     <div className="flex flex-wrap gap-10 justify-center sm:justify-around">

@@ -6,7 +6,7 @@ import React from 'react'
 interface TagProps{
   value : string
   deleteOption? : boolean
-  onClick: (event:React.MouseEvent<HTMLElement>) => void
+  onClick?: (event:React.MouseEvent<HTMLElement>) => void
 }
 
 const Tag:React.FC<TagProps> = ({value, deleteOption,onClick}) => {
@@ -24,7 +24,8 @@ const Tag:React.FC<TagProps> = ({value, deleteOption,onClick}) => {
         border 
         border-green-600 
         rounded-full 
-        text-green-600`
+        text-green-600
+        ${deleteOption && 'cursor-pointer'}`
       }
     >
       <span id={`tag_${value}`}>
