@@ -14,7 +14,7 @@ const SearchBar:React.FC<SearchBarProps> = ({
   onChange
 }) => {
   return (
-    <div className='pb-20'>
+    <div className='pb-10'>
       <div className='flex justify-center'>
           <div className='w-4/5 flex'>
               <input 
