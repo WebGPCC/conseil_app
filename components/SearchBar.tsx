@@ -7,7 +7,6 @@ interface SearchBarProps {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-
 const SearchBar:React.FC<SearchBarProps> = ({
   value,
   disabled,

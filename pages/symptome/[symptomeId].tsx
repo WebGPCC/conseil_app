@@ -16,19 +16,21 @@ const Symptome = () =>{
     const [tags, setTags] = useState<string[]>([])
 
     const displayedProduct = symptomeFetch?.produits.filter((produit:Record<string,any>)=>produit.voies.some((voie:string)=>tags.includes(voie)))
-    
+
     useEffect(() => {
+        var tmpArray = new Array()
         symptomeFetch?.produits.map((p:Record<string,any>)=>{
-            setListVoies(p.voies)
+            p.voies.map((v:string)=>{
+                tmpArray.push(v)
+            })
         })
-    },[symptomeFetch,setListVoies])
+        setListVoies(tmpArray)
+    },[symptomeFetch?.produits,setListVoies])
 
    const handleClickRemove = useCallback(async (event:React.MouseEvent<HTMLElement>)=>{
         event.preventDefault()
         event.stopPropagation()
         const element = event.target as HTMLTextAreaElement
-        // const parent = element.parentElement
-        // const word = parent?.parentElement?.innerText.replace(/ /g,'')
         console.log(element.firstChild?.textContent)
         const word = element.firstChild?.textContent?.replace(/ /g,'')
         word && setTags(tags.filter((tag)=>!tag.includes(word)))
