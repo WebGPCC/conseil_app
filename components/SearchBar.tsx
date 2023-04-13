@@ -28,7 +28,7 @@ const SearchBar:React.FC<SearchBarProps> = ({
                     bg-gray-200
                     h-16
                     rounded-l-2xl
-                    p-2
+                    p-4
                     placeholder
                     truncate...
                   '
