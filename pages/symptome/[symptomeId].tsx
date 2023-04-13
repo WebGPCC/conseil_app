@@ -6,6 +6,7 @@ import useSymptome from "@/hooks/useSymptome";
 import { useCallback, useEffect, useState } from "react";
 import Tag from "@/components/Tag";
 import ErrorSearch from "@/components/ErrorSearch";
+import Loading from "@/components/Loading";
 
 const Symptome = () =>{
     
@@ -48,7 +49,7 @@ const Symptome = () =>{
 
     
     if(!symptomeFetch || isLoading){
-        return (<div className="flex justify-center items-center h-[80vh] text-3xl text-bold">Loading..</div>)
+        return (<Loading/>)
     }
 
     return (
@@ -137,7 +138,7 @@ const Symptome = () =>{
                                     <ProductCard key={produit.id} data={produit}/>
                                 ))
                         : 
-                            <ErrorSearch phrase="Nous n'avons pas de produits pour le {symptomeFetch.name} pour le moment"/>
+                            <ErrorSearch phrase={`Nous n'avons pas de produits pour le symptôme ${symptomeFetch.name.toLocaleLowerCase()} pour le moment`}/>
                         }
                     </div>
                 </section>

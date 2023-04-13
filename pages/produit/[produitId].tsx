@@ -4,7 +4,7 @@ import image_test from "@/public/image_test.png"
 
 import React from 'react'
 import Tag from "@/components/Tag";
-import { faLeaf } from "@fortawesome/free-solid-svg-icons";
+import { faArrowAltCircleUp, faLeaf } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useProduct from "@/hooks/useProduct";
 
@@ -20,7 +20,7 @@ const Produit = () => {
     console.log('voies',produitFetch)
 
   return (
-    <div className="flex flex-col sm:flex-row pt-10">
+    <div className="relative flex flex-col sm:flex-row pt-10">
         <aside className="relative sm:w-1/2 w-full ">
           <Image 
             className="sticky top-0 w-full object-cover"
@@ -29,7 +29,7 @@ const Produit = () => {
           />  
         </aside>
 
-        <main className=" w-full h-full scroll-smooth px-5 sm:w-1/2 ">
+        <main className=" w-full h-full px-5 sm:w-1/2">
           <header className="sticky top-0 bg-white rounded-b drop-shadow p-5">
             <h2 className="text-xl">{produitFetch.brand}</h2>
             <h1 className="font-bold text-4xl">

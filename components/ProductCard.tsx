@@ -60,6 +60,7 @@ const ProductCard:React.FC<PropsProductCard> = ({data}) => {
                     dark:bg-green-600 
                     dark:hover:bg-green-700 
                     dark:focus:ring-green-800
+                    cursor-pointer
                 "
             >
                 En savoir plus

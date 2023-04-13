@@ -1,8 +1,22 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useCallback } from 'react'
-import cat_taux from '../public/cat_taux.png'
+
+import {motion} from 'framer-motion'
+
+const card = {
+  hidden: {
+    opacity : 0,
+    y: 30
+  },
+  show: {
+    opacity : 1,
+    y:0,
+    transition: {
+      duration: 1
+    }
+  }
+}
 
 interface SymptomeCardProps {
   data: Record<string,any>
@@ -19,7 +33,8 @@ const SymptomeCard: React.FC<SymptomeCardProps> = ({data}) => {
   )
   
   return (
-    <div 
+    <motion.div
+        variants={card}
         onClick={goToSymptome}
         className='
           flex
@@ -38,7 +53,7 @@ const SymptomeCard: React.FC<SymptomeCardProps> = ({data}) => {
           className='object-cover'
       />
       <h2 className='pt-2 font-bold '>{data.name}</h2>
-    </div>
+    </motion.div>
   )
 }
 
