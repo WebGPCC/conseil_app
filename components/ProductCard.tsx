@@ -21,27 +21,52 @@ const ProductCard:React.FC<PropsProductCard> = ({data}) => {
     )
 
   return (
-
-        <div className="max-w-md sm:max-w-xs bg-white border border-green-600 rounded-lg shadow">
-        
+    <div className="flex flex-col max-w-sm w-full sm:max-w-xs bg-white border border-green-600 rounded-lg shadow">
+        <div className='flex justify-center'>
             <Image 
                 className="rounded-t-lg" 
                 src={image_test}
                 alt="image_product"
             />
-    
-            <div className="p-5">
-                <h3 className="mb-2 text-xl font-bold tracking-tight">{data.name}</h3>
-                <p className="mb-3 font-normal">{data.description}</p>
-                <div
-                    onClick={goToProduct}                    
-                    className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
-                >
-                    En savoir plus
-                    <FontAwesomeIcon className='mx-2' icon={faArrowRight}/>
-                </div>
+        </div>
+
+        <div className="p-5 flex flex-col grow">
+            <h3 className="pb-2 text-xl font-bold tracking-tight">{data.name}</h3>
+            <p className="
+                pb-3
+                grow
+                font-normal 
+                truncate ..."
+            >
+                {data.description}
+            </p>
+            <div
+                onClick={goToProduct}                    
+                className="
+                    w-fit 
+                    inline-flex 
+                    items-center 
+                    px-3 py-2 
+                    text-sm 
+                    font-medium 
+                    text-center 
+                    text-white 
+                    bg-green-700 
+                    rounded-lg 
+                    hover:bg-green-800 
+                    focus:ring-4 
+                    focus:outline-none 
+                    focus:ring-green-300 
+                    dark:bg-green-600 
+                    dark:hover:bg-green-700 
+                    dark:focus:ring-green-800
+                "
+            >
+                En savoir plus
+                <FontAwesomeIcon className='mx-2' icon={faArrowRight}/>
             </div>
         </div>
+    </div>
   )
 }
 
