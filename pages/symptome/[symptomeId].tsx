@@ -125,7 +125,7 @@ const Symptome = () =>{
                             }
                     </div>
 
-                    <div className="flex flex-wrap gap-10 justify-center sm:justify-between">
+                    <div className="flex flex-wrap gap-10 justify-center md:justify-around">
                         {symptomeFetch.produits.length != 0 ? 
                             tags.length != 0 ?
                                 (displayedProduct.length != 0 ?

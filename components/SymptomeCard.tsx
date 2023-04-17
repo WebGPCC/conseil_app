@@ -50,9 +50,16 @@ const SymptomeCard: React.FC<SymptomeCardProps> = ({data}) => {
           alt='image du symptome'
           width='100'
           height='100'
-          className='object-cover'
+          className='object-fill
+          w-[200px]
+          h-[200px]
+          border-2
+          border-gray-800
+          hover:border-green-600
+          rounded-full
+          p-5'
       />
-      <h2 className='pt-2 font-bold '>{data.name}</h2>
+      <h2 className='pt-2 font-bold text-center'>{data.name}</h2>
     </motion.div>
   )
 }

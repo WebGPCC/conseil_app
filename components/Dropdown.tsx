@@ -19,7 +19,7 @@ const Dropdown: React.FC<Props> = ({color,color_hover,type, onClick, wordList}) 
     }
     
     return (
-        <div className="dropdown inline-block relative w-full sm:w-fit">
+        <div className="dropdown inline-block relative w-full sm:w-fit drop-shadow">
             <button onMouseEnter={checkDisplay} onMouseLeave={checkDisplay}  className={"text-white "+color+" font-semibold p-4 rounded-full inline-flex justify-between sm:justify-none items-center w-full sm:w-fit"}>
                 <span className="mr-20">{type}</span>
                 {isDisplay ?

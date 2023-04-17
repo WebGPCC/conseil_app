@@ -26,7 +26,7 @@ export default function Home() {
         value={value}
         disabled={isLoading}
         onChange={(e)=>{
-          setvalue(e.target.value)
+            setvalue(e.target.value)
         }}
       />
       <SymptomeList data={symptomes} isLoading={isLoading} filterby={value}/>
