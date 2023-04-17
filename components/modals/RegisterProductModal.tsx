@@ -162,6 +162,7 @@ const RegisterProductModal = () => {
                     disabled:cursor-no-allowed
                 '
             >
+                <option value="">----- Selectionnée une voie -----</option>
                 <option value="nasal">Nasal</option>
                 <option value="local">Local</option>
                 <option value="oral">Oral</option>

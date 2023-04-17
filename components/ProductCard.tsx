@@ -20,10 +20,10 @@ const ProductCard:React.FC<PropsProductCard> = ({data}) => {
     )
 
   return (
-    <div className="flex flex-col max-w-sm w-full sm:max-w-xs bg-white border border-green-600 rounded-lg shadow">
+    <div className="flex flex-col max-w-sm w-full sm:max-w-xs bg-white border border-green-600 rounded-lg drop-shadow-lg">
         <div className='flex justify-center min-h-[500xl] '>
             <Image 
-                className="rounded-t-lg min-h-[200px] min-w-[200px] object-cover" 
+                className="rounded-t-lg min-h-[200px] min-w-[200px] object-fill" 
                 src={data.image ? data.image : image_test }
                 alt="image_product"
                 width='100'
