@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/router"
-import image_test from "@/public/image_test.png" 
+import image_test from "@/public/image_test.png"
 
 import React from 'react'
 import Tag from "@/components/Tag";
@@ -21,15 +21,17 @@ const Produit = () => {
 
   return (
     <div className="relative flex flex-col sm:flex-row pt-10">
-        <aside className="sm:w-1/2 w-full">
+        <aside className="sm:sticky sm:top-0 sm:w-1/2 w-full h-full">
           <Image 
-            className="sticky top-0 w-full object-cover"
-            src={image_test}
+            className="object-cover w-full h-full px-10"
+            src={produitFetch.image ? produitFetch.image : image_test}
             alt="image_product"
+            width='100'
+            height='100'
           />  
         </aside>
 
-        <main className=" w-full h-full px-5 sm:w-1/2">
+        <main className=" w-full h-full px-5 sm:w-1/2 ">
           <header className="sticky top-0 bg-white rounded-b drop-shadow p-5 z-10">
             <h2 className="text-xl">{produitFetch.brand}</h2>
             <h1 className="font-bold text-4xl">
@@ -45,7 +47,7 @@ const Produit = () => {
             </div>
           </header>
 
-          <div className="bg-white min-h-sceen">
+          <div className="bg-white min-h-sceen ">
             <div className="grid divide-y divide-neutral-200 mt-8">
               <div className="py-5 ">
                 <details className="group">

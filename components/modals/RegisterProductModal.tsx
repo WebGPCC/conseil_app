@@ -6,11 +6,13 @@ import useRegisterSymptomeModal from '@/hooks/useRegisterSymptomeModal'
 import Input from '../global/Input'
 import Modal from './Modal'
 import TextArea from '../global/TextArea'
+import ImageUpload from '../ImageUpload'
 
 const RegisterProductModal = () => {
     const productModal = useRegisterProductModal()
     const symptomeModal = useRegisterSymptomeModal()
 
+    const [imageProduct, setImageProduct] = useState('')
     const [name,setName] = useState('')
     const [brand,setBrand] = useState('')
     const [description,setDescription] = useState('')
@@ -33,6 +35,7 @@ const RegisterProductModal = () => {
 
             //ADD
             await axios.post('/api/addProduct',{
+                imageProduct,
                 name,
                 brand,
                 description,
@@ -54,6 +57,7 @@ const RegisterProductModal = () => {
             setIsLoading(false)
         }
     },[
+        imageProduct,
         productModal,
         setIsLoading,
         name,
@@ -70,6 +74,12 @@ const RegisterProductModal = () => {
 
     const bobdyContent = (
         <div className='flex flex-col gap-4'>
+            <ImageUpload
+                value={imageProduct}
+                disabled={isLoading}
+                onChange={(image)=>setImageProduct(image)}
+                label='Upload une Image du produit'
+            /> 
             <div className='flex flex-wrap sm:flex-nowrap gap-4'>
                 <Input
                     placeholder='Nom'

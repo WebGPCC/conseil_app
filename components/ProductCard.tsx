@@ -1,7 +1,6 @@
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
-import Link from 'next/link'
 import { useRouter } from "next/router"
 import React, { useCallback } from 'react'
 import image_test from "../public/image_test.png" 
@@ -22,11 +21,13 @@ const ProductCard:React.FC<PropsProductCard> = ({data}) => {
 
   return (
     <div className="flex flex-col max-w-sm w-full sm:max-w-xs bg-white border border-green-600 rounded-lg shadow">
-        <div className='flex justify-center'>
+        <div className='flex justify-center min-h-[500xl] '>
             <Image 
-                className="rounded-t-lg" 
-                src={image_test}
+                className="rounded-t-lg min-h-[200px] min-w-[200px] object-cover" 
+                src={data.image ? data.image : image_test }
                 alt="image_product"
+                width='100'
+                height='100'
             />
         </div>
 

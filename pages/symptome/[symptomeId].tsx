@@ -22,7 +22,9 @@ const Symptome = () =>{
         var tmpArray = new Array()
         symptomeFetch?.produits.map((p:Record<string,any>)=>{
             p.voies.map((v:string)=>{
-                tmpArray.push(v)
+                if(!tmpArray.includes(v)){
+                    tmpArray.push(v)
+                }
             })
         })
         setListVoies(tmpArray)
@@ -123,7 +125,7 @@ const Symptome = () =>{
                             }
                     </div>
 
-                    <div className="flex flex-wrap gap-10 justify-center sm:justify-around">
+                    <div className="flex flex-wrap gap-10 justify-center sm:justify-between">
                         {symptomeFetch.produits.length != 0 ? 
                             tags.length != 0 ?
                                 (displayedProduct.length != 0 ?
