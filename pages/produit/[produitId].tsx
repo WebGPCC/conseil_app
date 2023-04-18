@@ -25,7 +25,7 @@ const Produit = () => {
 
   return (
     <div className="flex flex-col lg:flex-row">
-        <aside className="sticky top-0 w-full h-full px-5 lg:w-1/2">
+        <aside className="lg:sticky lg:top-0 w-full h-full px-5 lg:w-1/2">
           <Image 
             className="w-full h-1/2 px-5 object-contains"
             src={produitFetch.image ? produitFetch.image : image_test}
