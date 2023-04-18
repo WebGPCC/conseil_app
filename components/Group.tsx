@@ -11,7 +11,7 @@ const Group = ({label,content}: Props) => {
   return (
     <div className="py-5 bg-white">
     <details className="group">
-      <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
+      <summary className="flex justify-start items-center font-medium cursor-pointer list-none">
         <span className="text-lg">
           <FontAwesomeIcon className="mr-2" icon={faLeaf}/>{label}
         </span>
