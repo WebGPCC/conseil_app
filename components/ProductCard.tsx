@@ -47,7 +47,8 @@ const ProductCard:React.FC<PropsProductCard> = ({data}) => {
                     w-fit 
                     inline-flex 
                     items-center 
-                    px-3 py-2 
+                    justify-between 
+                    p-2 
                     text-sm 
                     font-medium 
                     text-center 
@@ -64,7 +65,9 @@ const ProductCard:React.FC<PropsProductCard> = ({data}) => {
                     cursor-pointer
                 "
             >
-                En savoir plus
+                <span>
+                    En savoir plus
+                </span>
                 <FontAwesomeIcon className='mx-2' icon={faArrowRight}/>
             </div>
         </div>
