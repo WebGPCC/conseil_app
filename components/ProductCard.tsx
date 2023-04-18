@@ -65,8 +65,8 @@ const ProductCard:React.FC<PropsProductCard> = ({data}) => {
                     cursor-pointer
                 "
             >
-                <span className='pr-2'>
-                    Voir plus
+                <span className='w-fit'>
+                    En savoir plus
                 </span>
                 <FontAwesomeIcon className='mx-2' icon={faArrowRight}/>
             </div>
