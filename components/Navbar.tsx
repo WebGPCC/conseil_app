@@ -34,7 +34,7 @@ const Navbar = () => {
                 />
             </Link>
             <div className='flex items-center'>
-                    <button onClick={onClick} className='border border-green-500 py-2 px-5 mx-5 hover:bg-black text-green-500 rounded-3xl'>Créer un produit</button> 
+                {/* <button onClick={onClick} className='border border-green-500 py-2 px-5 mx-5 hover:bg-black text-green-500 rounded-3xl'>Créer un produit</button>  */}
                 <button onClick={rollbackHystory}>
                     <FontAwesomeIcon icon={faCircleArrowLeft} className='cursor-pointer text-4xl text-green-600'/>
                 </button>
