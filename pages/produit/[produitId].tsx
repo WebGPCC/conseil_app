@@ -7,6 +7,7 @@ import Tag from "@/components/Tag";
 import { faChevronDown, faLeaf } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useProduct from "@/hooks/useProduct";
+import Group from "@/components/Group";
 
 
 
@@ -49,63 +50,10 @@ const Produit = () => {
 
           <div className="bg-white min-h-sceen mb-20">
             <div className="grid divide-y divide-neutral-200 mt-8">
-              <div className="py-5 ">
-                <details className="group">
-                  <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
-                    <span className="text-lg">
-                      <FontAwesomeIcon className="mr-2" icon={faLeaf}/>Description
-                    </span>
-                    <span className="transition group-open:rotate-180">
-                      <FontAwesomeIcon icon={faChevronDown} className='h-4' />  
-                    </span>
-                  </summary>
-                <p className="text-neutral-600 mt-3 group-open:animate-fadeIn">
-                  {produitFetch.description}
-                </p>
-                </details>
-              </div>
-
-              <div className="py-5">
-                <details className="group">
-                  <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
-                  <span className="text-lg"><FontAwesomeIcon className="mr-2" icon={faLeaf}/>Propriétés et bienfaits</span>
-                  <span className="transition group-open:rotate-180">
-                    <FontAwesomeIcon icon={faChevronDown} className='h-4' />  
-                  </span>
-                </summary>
-                <p className="text-neutral-600 mt-3 group-open:animate-fadeIn">
-                  {produitFetch.property}
-                </p>
-                </details>
-              </div>
-
-              <div className="py-5">
-                <details className="group">
-                  <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
-                    <span className="text-lg"><FontAwesomeIcon className="mr-2" icon={faLeaf}/>Conseils d’utilisation</span>
-                    <span className="transition group-open:rotate-180">
-                      <FontAwesomeIcon icon={faChevronDown} className='h-4' />  
-                    </span>
-                  </summary>
-                  <p className="text-neutral-600 mt-3 group-open:animate-fadeIn">
-                    {produitFetch.use}
-                  </p>
-                </details>
-              </div>
-
-              <div className="py-5">
-                <details className="group">
-                <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
-                <span className="text-lg"><FontAwesomeIcon className="mr-2" icon={faLeaf}/>Composition</span>
-                <span className="transition group-open:rotate-180">
-                  <FontAwesomeIcon icon={faChevronDown} className='h-4' />  
-                </span>
-                </summary>
-                <p className="text-neutral-600 mt-3 group-open:animate-fadeIn">
-                  {produitFetch.composition}
-                </p>
-                </details>
-              </div>
+              <Group label='Description' content={produitFetch.description}/>
+              <Group label='Propriété' content={produitFetch.property}/>
+              <Group label='Conseils d’utilisation' content={produitFetch.use}/>
+              <Group label='Composition' content={produitFetch.composition}/>
             </div>
           </div>
         </div>
