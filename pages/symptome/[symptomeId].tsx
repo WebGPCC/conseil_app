@@ -51,7 +51,9 @@ const Symptome = () =>{
 
     
     if(!symptomeFetch || isLoading){
-        return (<Loading/>)
+        return (
+            <Loading/>
+        )
     }
 
     return (
