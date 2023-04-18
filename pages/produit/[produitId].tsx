@@ -8,6 +8,7 @@ import { faChevronDown, faLeaf } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useProduct from "@/hooks/useProduct";
 import Group from "@/components/Group";
+import Loading from "@/components/Loading";
 
 
 
@@ -15,10 +16,12 @@ const Produit = () => {
     const router = useRouter();
     const {produitId} = router.query;
     const {data : produitFetch, isLoading} = useProduct(produitId as string)
+
     if(!produitFetch || isLoading){
-      return (<div className="flex justify-center items-center h-[80vh] text-3xl text-bold">Loading..</div>)
+      return (
+        <Loading/>
+      )
     }
-    console.log('voies',produitFetch)
 
   return (
     <div className="flex flex-col lg:flex-row">
