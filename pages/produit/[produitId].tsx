@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/router"
-import image_test from "@/public/image_test.png"
+import image_test from "@/public/image_test.jpg"
 
 import React from 'react'
 import Tag from "@/components/Tag";
@@ -69,7 +69,7 @@ const Produit = () => {
                   <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
                   <span className="text-lg"><FontAwesomeIcon className="mr-2" icon={faLeaf}/>Propriétés et bienfaits</span>
                   <span className="transition group-open:rotate-180">
-                  <FontAwesomeIcon icon={faChevronDown} className='h-4' />  
+                    <FontAwesomeIcon icon={faChevronDown} className='h-4' />  
                   </span>
                 </summary>
                 <p className="text-neutral-600 mt-3 group-open:animate-fadeIn">

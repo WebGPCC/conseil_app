@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Image from 'next/image'
 import { useRouter } from "next/router"
 import React, { useCallback } from 'react'
-import image_test from "../public/image_test.png" 
+import image_test from "../public/image_test.jpg" 
 
 interface PropsProductCard{
     data : Record<string,any>
