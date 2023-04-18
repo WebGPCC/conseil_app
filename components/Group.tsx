@@ -9,7 +9,7 @@ type Props = {
 
 const Group = ({label,content}: Props) => {
   return (
-    <div className="py-5 ">
+    <div className="py-5 bg-white">
     <details className="group">
       <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
         <span className="text-lg">
