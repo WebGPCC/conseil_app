@@ -33,12 +33,12 @@ const Navbar = () => {
                     alt ='Logo de la pharmacie'
                 />
             </Link>
-            <div className='flex items-center'>
+            <div className='flex items-center gap-6'>
                 {/* <button onClick={onClick} className='border border-green-500 py-2 px-5 mx-5 hover:bg-black text-green-500 rounded-3xl'>Créer un produit</button>  */}
                 <button onClick={rollbackHystory}>
                     <FontAwesomeIcon icon={faCircleArrowLeft} className='cursor-pointer text-4xl text-green-600'/>
                 </button>
-                <Link href="/"><FontAwesomeIcon icon={faHouse} className='text-4xl ml-6 color text-green-600 '/></Link>
+                <Link href="/"><FontAwesomeIcon icon={faHouse} className='text-4xl color text-green-600 '/></Link>
             </div>
         </div>
     </div>
