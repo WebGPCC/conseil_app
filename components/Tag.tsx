@@ -1,7 +1,6 @@
-import { faXbox } from '@fortawesome/free-brands-svg-icons'
+import React from 'react'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
 
 interface TagProps{
   value : string
@@ -14,19 +13,24 @@ const Tag:React.FC<TagProps> = ({value, deleteOption,onClick}) => {
     <span
       onClick={onClick}
       className={`
+        w-fit 
+        py-1 
+        text-green-600
+        rounded-full 
+        border 
+        border-green-600 
+        ${deleteOption && 'cursor-pointer'}
         ${deleteOption ? 
-          'flex justify-between items-center px-2 ' 
+          `
+            px-2
+            flex 
+            justify-between 
+            items-center 
+          ` 
         : 
           'text-center px-6'
         }      
-        w-fit 
-        py-1 
-        border 
-        border-green-600 
-        rounded-full 
-        text-green-600
-        ${deleteOption && 'cursor-pointer'}`
-      }
+      `}
     >
       <span id={`tag_${value}`}>
         {value}
@@ -34,8 +38,11 @@ const Tag:React.FC<TagProps> = ({value, deleteOption,onClick}) => {
 
       {deleteOption && (
         <FontAwesomeIcon 
-          className="pl-4 pointer-events-none" 
           icon={faXmark} 
+          className={`
+            pl-4 
+            pointer-events-none
+          `} 
         />
       )}
     </span>

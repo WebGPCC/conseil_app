@@ -33,15 +33,24 @@ const SearchBar:React.FC<SearchBarProps> = ({
                     truncate...
                   '
               />
+
               <div className='
                 bg-gray-200
                 h-16
                 rounded-r-2xl
                 flex
                 flex-end
-                items-center 
-              '>
-                  <FontAwesomeIcon icon={faMagnifyingGlass} className='m-5 text-xl text-green-600' />
+                items-center
+                '
+              >
+                <FontAwesomeIcon 
+                  icon={faMagnifyingGlass} 
+                  className='
+                    m-5 
+                    text-xl 
+                    text-green-600
+                  '
+                />
               </div>
           </div>
       </div>

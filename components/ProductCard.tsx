@@ -20,27 +20,50 @@ const ProductCard:React.FC<PropsProductCard> = ({data}) => {
     )
 
   return (
-    <div className="flex flex-col max-w-sm w-full sm:max-w-xs bg-white border border-green-600 rounded-lg drop-shadow-lg">
+    <div className={`
+            w-full
+            max-w-sm 
+            flex 
+            flex-col 
+            bg-white 
+            border 
+            border-green-600 
+            rounded-lg 
+            drop-shadow-lg
+            sm:max-w-xs 
+        `}
+    >
         <div className='flex justify-center'>
             <Image 
-                className="min-h-[200px] min-w-[200px] object-scale-down" 
                 src={data.image ? data.image : image_test }
                 alt="image_product"
                 width='100'
                 height='100'
+                className="
+                    min-h-[200px] 
+                    min-w-[200px] 
+                    object-scale-down
+                " 
             />
         </div>
 
         <div className="p-5 flex flex-col grow">
-            <h3 className="pb-2 text-xl font-bold tracking-tight">{data.name}</h3>
+            <h3 className="
+                    pb-2 
+                    text-xl 
+                    font-bold 
+                    tracking-tight
+                "
+            >{data.name}</h3>
+            
             <p className="
-                pb-3
-                grow
-                font-normal 
-                truncate ..."
-            >
-                {data.description}
-            </p>
+                    pb-3
+                    grow
+                    font-normal 
+                    truncate ...
+                "
+            >{data.description}</p>
+            
             <div
                 onClick={goToProduct}                    
                 className="
@@ -68,7 +91,11 @@ const ProductCard:React.FC<PropsProductCard> = ({data}) => {
                 <span className='w-fit'>
                     En savoir plus
                 </span>
-                <FontAwesomeIcon className='mx-2' icon={faArrowRight}/>
+                
+                <FontAwesomeIcon 
+                    className='mx-2' 
+                    icon={faArrowRight}
+                />
             </div>
         </div>
     </div>

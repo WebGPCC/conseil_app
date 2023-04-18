@@ -13,32 +13,60 @@ const Navbar = () => {
         return false
     }
     
-    const productModal = useRegisterProductModal()
+    // const productModal = useRegisterProductModal()
     
-    const onClick = useCallback(
-    () => {
-        productModal.onOpen()
-    },
-    [productModal],
-    )
+    // const onClick = useCallback(
+    // () => {
+    //     productModal.onOpen()
+    // },
+    // [productModal],)
   return (
     <div>
         <Head>
             <title>Nos conseils pour vous - GPCC</title>
         </Head>
-        <div className='flex justify-between items-center py-4 px-5 sm:py-5 sm:px-10 '>
+        <div className={`
+            flex 
+            justify-between 
+            items-center 
+            py-4 
+            px-5 
+            sm:py-5 
+            sm:px-10
+        `}>
             <Link href="/">
                 <Image 
                     src={logo}
                     alt ='Logo de la pharmacie'
                 />
             </Link>
-            <div className='flex items-center gap-6'>
+
+            <div className={`
+                flex 
+                items-center 
+                gap-6
+            `}>
                 {/* <button onClick={onClick} className='border border-green-500 py-2 px-5 mx-5 hover:bg-black text-green-500 rounded-3xl'>Créer un produit</button>  */}
                 <button onClick={rollbackHystory}>
-                    <FontAwesomeIcon icon={faCircleArrowLeft} className='cursor-pointer text-4xl text-green-600'/>
+                    <FontAwesomeIcon 
+                        icon={faCircleArrowLeft} 
+                        className={`
+                            text-4xl 
+                            text-green-600
+                            cursor-pointer 
+                        `}
+                    />
                 </button>
-                <Link href="/"><FontAwesomeIcon icon={faHouse} className='text-4xl color text-green-600 '/></Link>
+
+                <Link href="/">
+                    <FontAwesomeIcon 
+                        icon={faHouse} 
+                        className={`
+                            text-4xl 
+                            text-green-600
+                        `}
+                    />
+                </Link>
             </div>
         </div>
     </div>

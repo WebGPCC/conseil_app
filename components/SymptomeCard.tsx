@@ -59,7 +59,13 @@ const SymptomeCard: React.FC<SymptomeCardProps> = ({data}) => {
           rounded-full
           p-5'
       />
-      <h2 className='pt-2 font-bold text-center'>{data.name}</h2>
+      
+      <h2 className='
+          pt-2 
+          font-bold 
+          text-center
+        '
+      >{data.name}</h2>
     </motion.div>
   )
 }
