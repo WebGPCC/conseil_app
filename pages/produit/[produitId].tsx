@@ -23,7 +23,7 @@ const Produit = () => {
     <div className="flex flex-col lg:flex-row">
         <aside className=" sticky top-0 w-full h-full lg:w-1/2">
           <Image 
-            className="w-full h-1/2 object-contains"
+            className="w-full h-1/2 px-5 object-contains"
             src={produitFetch.image ? produitFetch.image : image_test}
             alt="image_product"
             width='100'
@@ -31,7 +31,7 @@ const Produit = () => {
           />
         </aside>
 
-        <div className=" w-full h-full px-5 lg:w-1/2">
+        <div className="w-full h-full px-5 lg:w-1/2 z-50 bg-white">
           <header className="sticky top-0 bg-white rounded-b drop-shadow p-5 z-10">
             <h2 className="text-xl">{produitFetch.brand}</h2>
             <h1 className="font-bold text-4xl">
@@ -53,8 +53,9 @@ const Produit = () => {
                 <details className="group">
                   <summary className="flex justify-between items-center font-medium cursor-pointer list-none">
                     <span className="text-lg">
-                      <FontAwesomeIcon className="mr-2" icon={faLeaf}/>Description</span>
-                      <span className="transition group-open:rotate-180">
+                      <FontAwesomeIcon className="mr-2" icon={faLeaf}/>Description
+                    </span>
+                    <span className="transition group-open:rotate-180">
                       <FontAwesomeIcon icon={faChevronDown} className='h-4' />  
                     </span>
                   </summary>
