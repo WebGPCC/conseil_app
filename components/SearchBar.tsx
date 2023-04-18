@@ -13,7 +13,7 @@ const SearchBar:React.FC<SearchBarProps> = ({
   onChange
 }) => {
   return (
-    <div className='pb-10'>
+    <div className=''>
       <div className='flex justify-center'>
           <div className='w-4/5 flex'>
               <input 
@@ -44,11 +44,6 @@ const SearchBar:React.FC<SearchBarProps> = ({
                   <FontAwesomeIcon icon={faMagnifyingGlass} className='m-5 text-xl text-green-600' />
               </div>
           </div>
-      </div>
-      <div className='flex justify-center'>
-        <span className='cursor-pointer p-5'>Beauté</span>
-        <span className='p-5'>|</span>
-        <span className='cursor-pointer p-5 text-green-600 font-bold'>Santé</span>
       </div>
     </div>
   )

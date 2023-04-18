@@ -9,6 +9,7 @@ interface errorSeachProps{
 const ErrorSearch:React.FC<errorSeachProps> = ({phrase}) => {
   return (
     <span className=" 
+            w-fit
             flex 
             justify-center 
             items-center 
