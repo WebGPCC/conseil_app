@@ -2,8 +2,6 @@ import React from 'react'
 import Navbar from './Navbar';
 
 import {motion, AnimatePresence} from 'framer-motion'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons';
 
 interface LayoutProps{
     children: React.ReactNode;

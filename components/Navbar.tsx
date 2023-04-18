@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <div>
         <Head>
-            <title>Nos Conseil pour vous</title>
+            <title>Nos conseils pour vous - GPCC</title>
         </Head>
         <div className='flex justify-between items-center py-4 px-5 sm:py-5 sm:px-10 '>
             <Link href="/">
