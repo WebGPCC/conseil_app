@@ -20,10 +20,10 @@ const Produit = () => {
     console.log('voies',produitFetch)
 
   return (
-    <div className="relative flex flex-col sm:flex-row pt-10">
-        <aside className="sm:sticky sm:top-0 sm:w-1/2 w-full h-full">
+    <div className="relative flex flex-wrap lg:flex-row pt-10 h-[100vh]">
+        <aside className="w-full flex justify-center lg:w-1/2 lg:sticky top-0">
           <Image 
-            className="object-cover w-full h-full px-10"
+            className="object-scale-down px-10 w-full h-full"
             src={produitFetch.image ? produitFetch.image : image_test}
             alt="image_product"
             width='100'
@@ -31,7 +31,7 @@ const Produit = () => {
           />  
         </aside>
 
-        <main className=" w-full h-full px-5 sm:w-1/2 ">
+        <main className=" w-full h-full px-5 lg:w-1/2">
           <header className="sticky top-0 bg-white rounded-b drop-shadow p-5 z-10">
             <h2 className="text-xl">{produitFetch.brand}</h2>
             <h1 className="font-bold text-4xl">
