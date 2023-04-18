@@ -61,7 +61,7 @@ const SymptomesList:React.FC<SymptomeListProps> = ({data, isLoading, filterby,bo
       initial="hidden"
       animate="show"
       className='flex justify-around  items-center flex-wrap gap-10 m:gap-24 m:px-36 pb-16 px-10'>
-      { bool ? 
+      { !bool ? 
           symptomes.length != 0 ?
             symptomes
           :
