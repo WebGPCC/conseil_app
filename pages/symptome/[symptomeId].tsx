@@ -106,7 +106,6 @@ const Symptome = () =>{
                         Voici les produits qu’on vous&nbsp;
                         <span className="text-green-600">conseils</span>
                     </h2>
-                    
                     {tags.length != 0 &&
                         <div className="flex flex-wrap items-center gap-2 mb-6">
                             <span className="font-bold">Tag selectionné:&nbsp;</span>

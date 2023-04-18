@@ -13,20 +13,20 @@ type Props = {
 const Dropdown: React.FC<Props> = ({color,color_hover,type, onClick, wordList}) => {
     const [clicked, setClicked] = useState(false) 
     return (
-        <div className="inline-block relative w-full sm:w-fit z-50">
+        <div className="inline-block relative z-50 w-full">
             <button 
                 onClick={(e)=>setClicked(!clicked)} 
                 className={`
                     inline-flex 
                     justify-between 
                     items-center 
-                    w-full 
+                    w-full
                     p-4 
                     text-white 
                     font-semibold 
                     rounded-full 
                     drop-shadow
-                    sm:w-fit  
+                     
                     sm:justify-none
                     ${color}
                 `}
