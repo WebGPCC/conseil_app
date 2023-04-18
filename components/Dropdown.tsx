@@ -23,16 +23,20 @@ const Dropdown: React.FC<Props> = ({color,color_hover,type, onClick, wordList}) 
                     w-full 
                     p-4 
                     text-white 
-                    ${color} 
                     font-semibold 
                     rounded-full 
                     drop-shadow
                     sm:w-fit  
                     sm:justify-none
+                    ${color}
                 `}
             >
                 <span className="mr-20">{type}</span>
-                { clicked ? <FontAwesomeIcon icon={faChevronUp}/> : <FontAwesomeIcon icon={faChevronDown}/>}
+                { clicked ? 
+                    <FontAwesomeIcon icon={faChevronUp}/> 
+                    : 
+                    <FontAwesomeIcon icon={faChevronDown}/>
+                }
             </button>
 
             <ul className={`
@@ -55,11 +59,11 @@ const Dropdown: React.FC<Props> = ({color,color_hover,type, onClick, wordList}) 
                         onClick={onClick} 
                         className={`
                             text-white 
-                            hover:${color_hover} 
                             py-2 
                             pl-4 
                             whitespace-no-wrap 
                             cursor-pointer
+                            hover:${color_hover}
                         `} 
                     >
                         {word}

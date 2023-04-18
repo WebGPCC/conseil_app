@@ -56,10 +56,9 @@ const Symptome = () =>{
         )
     }
 
-    return (
-        
+    return (   
         <div className="pb-20">
-            <div className="flex justify-center items-center ">
+            <section className="flex justify-center items-center ">
                 <Image 
                     src={symptomeFetch.coverImage} 
                     alt="Image"
@@ -68,10 +67,10 @@ const Symptome = () =>{
                     height='100'
                 />
                 <h1 className="text-white text-center text-3xl sm:text-5xl absolute">{symptomeFetch.name}</h1>
-            </div>
+            </section>
 
             <div className="px-8 md:px-8">
-                <section>
+                <article>
                     <h2 className="
                         flex 
                         flex-wrap 
@@ -89,10 +88,25 @@ const Symptome = () =>{
                         </span>
                     </h2>
                     <p>{symptomeFetch.precaution}</p>
-                </section>
+                </article>
 
                 <section>
-                    <h2 className=" flex flex-wrap font-bold text-2xl pt-10 pb-5 sm:pb-10 md:text-4xl lg:text-5xl " >Voici les produits qu’on vous&nbsp;<span className="text-green-600">conseils</span></h2>
+                    <h2 className={`
+                            pb-5 
+                            pt-10 
+                            flex 
+                            flex-wrap 
+                            font-bold 
+                            text-2xl 
+                            sm:pb-10 
+                            md:text-4xl 
+                            lg:text-5xl 
+                        `}
+                    >
+                        Voici les produits qu’on vous&nbsp;
+                        <span className="text-green-600">conseils</span>
+                    </h2>
+                    
                     {tags.length != 0 &&
                         <div className="flex flex-wrap items-center gap-2 mb-6">
                             <span className="font-bold">Tag selectionné:&nbsp;</span>
@@ -110,21 +124,18 @@ const Symptome = () =>{
                     }
 
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-10">
-                            {
-                                listVoies.length != 0 &&
-                                (<>                                
-                                    <span className="font-bold">Trier par:</span>
-                                    <div className="flex flex-wrap items-center gap-2 "> 
-                                        <Dropdown 
-                                            type={"Voie"} 
-                                            color={"bg-pink-600"} 
-                                            color_hover={"bg-pink-600"}
-                                            onClick={handleClickTags}
-                                            wordList={listVoies}
-                                        />
-                                    </div>
-                                </>)
-                            }
+                        {listVoies.length != 0 && <>                                
+                            <span className="font-bold">Trier par:</span>
+                            <div className="flex flex-wrap items-center gap-2 "> 
+                                <Dropdown 
+                                    type={"Voie"} 
+                                    color={"bg-pink-600"} 
+                                    color_hover={"bg-pink-600"}
+                                    onClick={handleClickTags}
+                                    wordList={listVoies}
+                                />
+                            </div>
+                        </>}
                     </div>
 
                     <div className="flex flex-wrap justify-around gap-5">
