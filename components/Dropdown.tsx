@@ -19,8 +19,8 @@ const Dropdown: React.FC<Props> = ({color,color_hover,type, onClick, wordList}) 
     }
     
     return (
-        <div onClick={(e)=>setClicked(!clicked)} className="dropdown inline-block relative w-full sm:w-fit drop-shadow z-50">
-            <button onMouseEnter={checkDisplay} onMouseLeave={checkDisplay}  className={"text-white "+color+" font-semibold p-4 rounded-full inline-flex justify-between sm:justify-none items-center w-full sm:w-fit"}>
+        <div onClick={(e)=>setClicked(!clicked)} className="dropdown inline-block relative w-full sm:w-fit z-50">
+            <button onMouseEnter={checkDisplay} onMouseLeave={checkDisplay}  className={"text-white "+color+" font-semibold p-4 rounded-full inline-flex justify-between sm:justify-none items-center w-full sm:w-fit  drop-shadow"}>
                 <span className="mr-20">{type}</span>
                 {isDisplay || clicked ?
                     <FontAwesomeIcon icon={faChevronUp}/>
