@@ -46,7 +46,20 @@ const Navbar = () => {
                 items-center 
                 gap-6
             `}>
-                {/* <button onClick={onClick} className='border border-green-500 py-2 px-5 mx-5 hover:bg-black text-green-500 rounded-3xl'>Créer un produit</button>  */}
+                {/* <button 
+                    onClick={onClick} 
+                    className={`
+                        py-2 
+                        px-5 
+                        mx-5 
+                        border 
+                        border-green-500 
+                        text-green-500 
+                        rounded-3xl
+                        hover:bg-black 
+                    `}
+                >Créer un produit</button>  */}
+
                 <button onClick={rollbackHystory}>
                     <FontAwesomeIcon 
                         icon={faCircleArrowLeft} 

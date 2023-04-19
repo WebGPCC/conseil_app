@@ -60,29 +60,41 @@ const SymptomesList:React.FC<SymptomeListProps> = ({data, isLoading, filterby,bo
       variants={variants}
       initial="hidden"
       animate="show"
-      className='flex justify-around  items-center flex-wrap gap-10 m:gap-24 m:px-36 pb-16 px-10'>
+      className={`
+        px-10
+        pb-16
+        flex
+        flex-wrap
+        justify-around  
+        items-center
+        gap-10
+        md:gap-24 
+        md:px-36
+      `}
+    >
       { !bool ? 
           symptomes.length != 0 ?
             symptomes
           :
-            (<span className=" 
-                  flex 
-                  justify-center 
-                  items-center 
-                  text-bold 
-                  text-xl 
-                  text-gray-700 
-                  py-8 
-                  px-4 
-                  border 
-                  border-2 
-                  border-dotted
-                  rounded-xl
+            (
+              <span className=" 
+                flex 
+                justify-center 
+                items-center 
+                text-bold 
+                text-xl 
+                text-gray-700 
+                py-8 
+                px-4 
+                border 
+                border-2 
+                border-dotted
+                rounded-xl
               ">
-                  <span className="text-4 xl mr-5">
-                      <FontAwesomeIcon icon={faMagnifyingGlass}/>
-                  </span>
-                  Aucun produit ne correspond à la recherche
+                <span className="text-4 xl mr-5">
+                  <FontAwesomeIcon icon={faMagnifyingGlass}/>
+                </span>
+                Aucun produit ne correspond à la recherche
               </span>
             )
           :
